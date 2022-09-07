@@ -31,3 +31,6 @@ GET $baseUrl/:metodo?nombre=:nombre&apellido=:apellido
 Content-type: application/json
 php-auth-user: pepito # for user / pw
 php-auth-pw: lopez
+
+# GET localhost
+GET http://localhost:1591/
