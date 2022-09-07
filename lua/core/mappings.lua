@@ -95,8 +95,8 @@ as.map("n", "<leader>b[", ":bp<CR>") -- buffer previous
 as.map("n", "<leader>bn", [[:enew<CR>]], { silent = false }) -- new buffer
 as.map("n", "<leader>bf", [[:e <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new file
 as.map("n", "<leader>bv", [[:vsp <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new split
-as.map('n', '<leader>s', ":lua require'hop'.hint_char2()<cr>")
-as.map('n', '<leader>S', ":lua require'hop'.hint_char1()<cr>")
+as.map('n', '<leader>s', ":HopChar2<CR>")
+as.map('n', '<leader>S', ":HopChar1<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
