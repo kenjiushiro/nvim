@@ -15,5 +15,5 @@
 ```
 
 ```sh
-curl -sLf https://raw.githubusercontent.com/kenjiushiro/nvim/utils/install.sh | sh
+curl -sLf https://raw.githubusercontent.com/kenjiushiro/nvim/main/utils/install.sh | sh
 ```
