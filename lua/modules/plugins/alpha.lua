@@ -1,8 +1,12 @@
 local M = {}
+local banners = require'modules.plugins.banners'
 
 M.config = function()
     local alpha = require "alpha"
     local startify = require "alpha.themes.startify"
+    local dashboard = require "alpha.themes.dashboard"
+    math.randomseed(os.time())
+    dashboard.section.header.val = banners[math.random(#banners)]
     startify.section.header.val = vim.g.code_startify_header_ascii
     startify.section.top_buttons.val = {
         startify.button("e", "New file", ":enew<CR>"),
@@ -36,6 +40,7 @@ M.config = function()
         },
     }
     alpha.setup(require("alpha.themes.startify").opts)
+    alpha.setup(dashboard.opts)
 end
 
 return M

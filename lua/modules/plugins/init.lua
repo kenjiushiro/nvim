@@ -306,10 +306,9 @@ local pack_use = function()
     }
     use {
         'goolord/alpha-nvim',
-        requires = { 'kyazdani42/nvim-web-devicons' },
         config = function ()
-            require'alpha'.setup(require'alpha.themes.startify'.config)
-        end
+            require("modules.plugins.alpha").config()
+        end,
     }
     use {
         "norcalli/nvim-colorizer.lua",
