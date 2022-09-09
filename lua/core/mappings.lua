@@ -233,6 +233,6 @@ as.map("n", "<leader>rl", ":lwindow<CR>")
 as.map("n", "<leader>rJ", [[:<C-u>call append(line("."), repeat([""], v:count1))<CR>]]) -- append line down without insert mode
 as.map("n", "<leader>rK", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]]) -- append line up without insert mode
 
-as.map('n', '<leader>sql', ":DBUI<CR>")
+as.map('n', '<leader>sql', ":tabnew<CR>:DBUI<CR>")
 as.map('n', '<leader>re', ":HTTPClientDoRequest<CR>")
 -- }}}

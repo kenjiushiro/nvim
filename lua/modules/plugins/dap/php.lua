@@ -15,7 +15,12 @@ dap.configurations.php = {
       name = "Listen for Xdebug",
       type = "php",
       request = "launch",
-      port = 9003
+      port = function()
+        local port
+        port = tonumber(vim.fn.input('Port [9003]: ')) or 9003
+        print('Debugging port '.. port)
+        return port
+      end
   },
   {
       name = "Launch currently open script",

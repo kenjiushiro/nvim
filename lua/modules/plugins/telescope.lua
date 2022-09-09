@@ -23,6 +23,8 @@ M.config = function()
                 "package.json",
                 "package-lock.json",
                 ".git/",
+                ".m2/",
+                ".coursier/",
                 ".mkv",
                 ".png",
                 ".jpg",
