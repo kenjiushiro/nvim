@@ -118,6 +118,7 @@ main() {
         install_packer
         install
     fi
+    mkdir ~/requests
 }
 
 main "$@"
