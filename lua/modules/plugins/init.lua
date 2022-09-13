@@ -324,6 +324,7 @@ local pack_use = function()
             })
         end,
     }
+    use { 'KabbAmine/vCoolor.vim' }
 end
 
 local fn, execute = vim.fn, vim.api.nvim_command
