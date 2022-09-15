@@ -256,9 +256,27 @@ local pack_use = function()
     -----------------------------------------------------------------------------
     -- Debugging
     -----------------------------------------------------------------------------
+    use { 'jamestthompson3/nvim-remote-containers' }
+    use {
+      'https://codeberg.org/esensar/nvim-dev-container',
+      requires = { 'nvim-treesitter/nvim-treesitter' },
+      require("devcontainer").setup{
+          attach_mounts = {
+          always = true,
+          neovim_config = {
+            enabled = true,
+            options = { "readonly" }
+          },
+          neovim_data = {
+            enabled = true,
+            options = {}
+          },
+        },
+      }
+    }
     use {
         "mfussenegger/nvim-dap",
-        require"modules.plugins.dap".setup()
+        -- require"modules.plugins.dap".setup()
     }
 
     use {'mfussenegger/nvim-dap-python'}

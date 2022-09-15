@@ -26,6 +26,7 @@ M.config = function()
                 ".m2/",
                 ".coursier/",
                 ".mkv",
+                "repos",
                 ".png",
                 ".jpg",
                 ".jpeg",
