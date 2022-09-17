@@ -163,6 +163,13 @@ as.map("n", "<leader>gs", ":Gitsigns stage_hunk<CR>") -- git stage hunk
 as.map("n", "<leader>gS", ":Gitsigns stage_buffer<CR>") -- git stage buffer
 as.map("n", "<leader>g[", ":Gitsigns prev_hunk<CR>") -- previous hunk
 as.map("n", "<leader>g]", ":Gitsigns next_hunk<CR>") -- next hunk
+as.map("n", "<leader>gq", ":GitConflictListQf<CR>")
+as.map("n", "<leader>gt", ":GitConflictChooseTheirs<CR>")
+as.map("n", "<leader>go", ":GitConflictChooseOurs<CR>")
+as.map("n", "<leader>gn", ":GitConflictNextConflict<CR>")
+as.map("n", "<leader>gp", ":GitConflictPrevConflict<CR>")
+as.map("n", "<leader>ga", ":GitConflictChooseBoth<CR>")
+as.map("n", "<leader>gx", ":GitConflictChooseNone<CR>")
 -----------------------------------------------------------------------------//
 -- Telescope {{{1
 -----------------------------------------------------------------------------//
