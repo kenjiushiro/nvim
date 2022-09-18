@@ -185,7 +185,7 @@ as.map("n", "<leader>fq", ":Telescope quickfix<CR>")
 as.map("n", "<leader>fl", ":Telescope loclist<CR>")
 as.map("n", "<leader>fq", ":Telescope quickfix<CR>")
 as.map("n", "<leader>fn", ":Telescope fd cwd=$HOME/.config/nvim/<CR>")
-as.map("n", "<leader>fa", ":Telescope fd cwd=$HOME/.config/alacritty/alacritty.yml<CR>")
+as.map("n", "<leader>fa", ":tabe $HOME/.config/alacritty/alacritty.yml<CR>")
 as.map("n", "<leader>fp", ":Telescope projects<CR>")
 as.map("n", "<leader>fm", ":Telescope marks<CR>")
 -----------------------------------------------------------------------------//
