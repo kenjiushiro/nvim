@@ -50,9 +50,7 @@ case $1 in
   ;;
 "php")
   install_debugger_from "https://github.com/xdebug/vscode-php-debug" "out/phpDebug.js" "npm i" "npm run build"
-  ;;
-"bash")
-  install_debugger_from "https://github.com/rogalmic/vscode-bash-debug" "out/bashDebug.js" "npm i" "npm run compile"
+  echo "Php"
   ;;
 "python")
   echo "Creating virtualenv for debugpy"

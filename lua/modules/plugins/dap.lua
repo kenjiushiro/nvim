@@ -12,7 +12,6 @@ return {
         require("dap-python").setup('~/.virtualenvs/debugpy/bin/python')
         require("dap-go").setup()
         require'modules.plugins.dap.php'
-        require'modules.plugins.dap.bash'
         require("nvim-dap-virtual-text").setup()
     end,
     attach = require'modules.plugins.dap.typescript',
