@@ -146,19 +146,28 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     use { "ray-x/lsp_signature.nvim" }
     use {
+      "williamboman/mason.nvim",
+    }
+    if (pcall(require, "mason")) then
+      require"mason".setup()
+      require"modules.lsp.servers"
+    end
+    use {
+      "williamboman/mason-lspconfig.nvim",
+    }
+    if (pcall(require, "mason-lspconfig")) then
+      require"mason-lspconfig".setup()
+    end
+    use {
         "neovim/nvim-lspconfig",
         event = "BufReadPre",
         config = function()
             require "modules.lsp"
         end,
     }
-    use {
-        "williamboman/nvim-lsp-installer",
-        after = "nvim-lspconfig",
-        config = function()
-            require "modules.lsp.servers"
-        end,
-    }
+    use { 'mfussenegger/nvim-lint' }
+    use { 'jose-elias-alvarez/null-ls.nvim' }
+
     use{
         "glepnir/lspsaga.nvim",
         branch = "main",
@@ -279,12 +288,16 @@ local pack_use = function()
     -- }
     use {
         "mfussenegger/nvim-dap",
-        -- require"modules.plugins.dap".setup()
     }
+    if (pcall(require, "dap")) then
+      require"modules.plugins.dap".setup()
+    end
 
     use {'mfussenegger/nvim-dap-python'}
 
     use {'leoluz/nvim-dap-go'}
+
+    use { 'blueyed/vim-diminactive' }
 
     use {
         "rcarriga/nvim-dap-ui",
