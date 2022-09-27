@@ -98,41 +98,38 @@ local function common_on_attach(client, bufnr)
     wk.register(mappings)
 end
 
-require("nvim-lsp-installer").on_server_ready(function(server)
-    local opts = {
-        -- enable snippet support
-        capabilities = require("modules.lsp").capabilities,
-        -- map buffer local keybindings when the language server attaches
-        on_attach = common_on_attach,
-        flags = { debounce_text_changes = 150 },
-        autostart = as._lsp_auto(server.name),
-    }
 
-    -- language specific config
-    if server.name == "bashls" then
-        opts.filetypes = { "sh", "zsh" }
-    end
-    if server.name == "sumneko_lua" then
-        opts.settings = {
-            Lua = {
-                diagnostics = {
-                    -- Get the language server to recognize the `vim` global
-                    globals = {
-                        "vim",
-                        "as",
-                        "DATA_PATH",
-                        "use",
-                        "run",
-                    },
-                },
-                workspace = {
-                    maxPreload = 10000,
-                    preloadFileSize = 50000,
-                },
-            },
+local lspconfig = require("lspconfig")
+require("mason-lspconfig").setup_handlers({
+    function (server_name)
+        local opts = {
+            capabilities = require("modules.lsp").capabilities,
+            flags = { debounce_text_changes = 150 },
+            on_attach = common_on_attach,
+            autostart = as._lsp_auto(server_name),
         }
-    end
-
-    server:setup(opts)
-    vim.cmd [[ do User LspAttachBuffers ]]
-end)
+        if server_name == "sumneko_lua" then
+          opts.settings = {
+              Lua = {
+                  diagnostics = {
+                      globals = {
+                          "vim",
+                          "as",
+                          "DATA_PATH",
+                          "use",
+                          "run",
+                      },
+                  },
+                  workspace = {
+                      maxPreload = 10000,
+                      preloadFileSize = 50000,
+                  },
+              },
+          }
+        end
+        if server_name == "bashls" then
+          opts.filetypes = { "bash", "zsh" }
+        end
+        lspconfig[server_name].setup(opts)
+    end,
+})
