@@ -18,23 +18,24 @@ local dap = require('dap')
 -- end
 
 local mason_registry = require'mason-registry'
-local bin_path = vim.fn.stdpath('data') .. '/mason/bin/'
 
-local node_debugger = "node-debug2-adapter"
+local M = {}
+
+M.setup = function(bin_path)
+  local node_debugger = "node-debug2-adapter"
   if (mason_registry.is_installed(node_debugger)) then
     local adapter_path = bin_path .. node_debugger
-    print('Adapter: ' .. adapter_path)
 
     dap.adapters.node2 = {
-        type = "executable",
-        command = "node",
-        args = {
-          adapter_path
-        },
+      type = "executable",
+      command = "bash",
+      args = {
+        adapter_path,
+      },
     }
 
-  local port = 9229
-  dap.configurations.typescript = {
+    local port = 9229
+    dap.configurations.typescript = {
       {
         type = 'node2',
         request = 'attach',
@@ -55,47 +56,50 @@ local node_debugger = "node-debug2-adapter"
         stopOnEntry = true,
         name = "Launch Program",
         skipFiles = {
-            "<node_internals>/**"
+          "<node_internals>/**"
         },
         program = "${file}",
         sourceMaps = true,
         outFiles = {
-            "${workspaceFolder}/dist/*.js",
-            "${workspaceFolder}/bin/*.js",
-            "${workspaceFolder}/out/*.js",
-            "${workspaceFolder}/dist/**/*.js",
-            "${workspaceFolder}/bin/**/*.js",
-            "${workspaceFolder}/out/**/*.js",
+          "${workspaceFolder}/dist/*.js",
+          "${workspaceFolder}/bin/*.js",
+          "${workspaceFolder}/out/*.js",
+          "${workspaceFolder}/dist/**/*.js",
+          "${workspaceFolder}/bin/**/*.js",
+          "${workspaceFolder}/out/**/*.js",
         },
       },
       {
-          name = "Attach to Chrome",
-          port = 9222,
-          request = "attach",
-          type = "chrome",
-          webRoot = "${workspaceFolder}",
+        name = "Attach to Chrome",
+        port = 9222,
+        request = "attach",
+        type = "chrome",
+        webRoot = "${workspaceFolder}",
       },
-  }
+    }
 
-  dap.configurations.javascript = {
+    dap.configurations.javascript = {
       {
         type = "node2",
         request = "launch",
         stopOnEntry = true,
         name = "Launch Program",
         skipFiles = {
-            "<node_internals>/**"
+          "<node_internals>/**"
         },
         program = "${file}"
       },
-  }
-end
+    }
+  end
 
 
-dap.adapters.chrome = {
+  dap.adapters.chrome = {
     type = "executable",
     command = "node",
     args = {
-        os.getenv("HOME") .. "/.config/debuggers/vscode-chrome-debug/out/src/chromeDebug.js",
+      os.getenv("HOME") .. "/.config/debuggers/vscode-chrome-debug/out/src/chromeDebug.js",
     },
-}
+  }
+end
+
+return M
