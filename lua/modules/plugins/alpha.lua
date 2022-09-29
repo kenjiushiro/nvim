@@ -3,44 +3,24 @@ local banners = require'modules.plugins.banners'
 
 M.config = function()
     local alpha = require "alpha"
-    local startify = require "alpha.themes.startify"
     local dashboard = require "alpha.themes.dashboard"
     math.randomseed(os.time())
     dashboard.section.header.val = banners[math.random(#banners)]
-    startify.section.header.val = vim.g.code_startify_header_ascii
-    startify.section.top_buttons.val = {
-        startify.button("e", "New file", ":enew<CR>"),
-        { type = "padding", val = 1 },
-        startify.button("f", "Find Files", ":Telescope find_files<CR>"),
-        startify.button("r", "Recent Files", ":Telescope oldfiles<CR>"),
-        startify.button("w", "Grep Word", ":Telescope live_grep<CR>"),
-        startify.button("h", "Help Tags", ":Telescope help_tags<CR>"),
-        startify.button("p", "Projects", ":Telescope projects<CR>"),
-        startify.button("s", "Last Session", ":lua require'persistence'.load({last = true})<CR>"),
-    }
-    startify.section.bottom_buttons.val = {
-        startify.file_button("~/.config/nvim/lua/config.lua", "c"),
-        startify.file_button("~/.config/nvim/init.lua", "i"),
-        startify.file_button("~/.config/nvim/lua/modules/plugins/init.lua", "l"),
-        { type = "padding", val = 1 },
-        startify.button("q", "Quit", ":quitall<CR>"),
-    }
-    startify.opts = {
-        layout = {
-            { type = "padding", val = 2 },
-            startify.section.header,
-            { type = "padding", val = 2 },
-            startify.section.top_buttons,
-            startify.section.mru,
-            { type = "padding", val = 1 },
-            startify.section.bottom_buttons,
-        },
-        opts = {
-            margin = 3,
-        },
+    dashboard.section.buttons.val = {
+      dashboard.button("e", "> 📄 New file", ":e"),
+      dashboard.button("f", "> 🔎 Find files", ":Telescope find_files<CR>"),
+      dashboard.button("r", "> 📞 HTTP Client", ":Telescope fd cwd=$HOME/requests/<CR>"),
+      dashboard.button("p", "> 💼 Select project", ":Telescope projects<CR>"),
+      dashboard.button("n", "> 📝 Nvim Config", ":Telescope fd cwd=$HOME/.config/nvim/<CR>"),
+      dashboard.button("a", "> 💻 Alacritty config", ":tabe $HOME/.config/alacritty/alacritty.yml<CR>"),
+      dashboard.button("s", "> 🔌 Sync plugins", ":PackerSync<CR>"),
+      dashboard.button("q", "> 👋 Quit", ":qa!<CR>"),
+
     }
     alpha.setup(require("alpha.themes.startify").opts)
     alpha.setup(dashboard.opts)
+    local fortune = require("alpha.fortune")
+    dashboard.section.footer.val = fortune()
 end
 
 return M

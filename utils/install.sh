@@ -119,6 +119,7 @@ main() {
         install
     fi
     mkdir -p ~/requests
+    cp ~/.config/nvim/lua/modules/plugins/example.request.http ~/requests/example.request.http
 }
 
 main "$@"
