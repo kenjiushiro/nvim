@@ -7,7 +7,7 @@ M.config = function()
     math.randomseed(os.time())
     dashboard.section.header.val = banners[math.random(#banners)]
     dashboard.section.buttons.val = {
-      dashboard.button("e", "> 📄 New file", ":e"),
+      dashboard.button("e", "> 📄 New file", ":enew<CR>"),
       dashboard.button("f", "> 🔎 Find files", ":Telescope find_files<CR>"),
       dashboard.button("r", "> 📞 HTTP Client", ":Telescope fd cwd=$HOME/requests/<CR>"),
       dashboard.button("p", "> 💼 Select project", ":Telescope projects<CR>"),
