@@ -16,5 +16,6 @@ return {
         require("nvim-dap-virtual-text").setup()
         require'modules.plugins.dap.php'.setup(bin_path)
         require'modules.plugins.dap.typescript'.setup(bin_path)
+        require'modules.plugins.dap.bash'.setup(bin_path)
     end
 }
