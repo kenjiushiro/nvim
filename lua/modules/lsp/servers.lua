@@ -128,7 +128,7 @@ require("mason-lspconfig").setup_handlers({
           }
         end
         if server_name == "bashls" then
-          opts.filetypes = { "bash", "zsh" }
+          opts.filetypes = { "bash", "zsh", "sh" }
         end
         lspconfig[server_name].setup(opts)
     end,
