@@ -127,6 +127,14 @@ local pack_use = function()
     use { "haya14busa/vim-asterisk" }
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
     use {
+      "cuducos/yaml.nvim",
+      ft = {"yaml"}, -- optional
+      requires = {
+        "nvim-treesitter/nvim-treesitter",
+        "nvim-telescope/telescope.nvim" -- optional
+      },
+    }
+    use {
         "folke/which-key.nvim",
         event = "BufWinEnter",
         config = function()
@@ -186,7 +194,6 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     use {
         "nvim-telescope/telescope-fzf-native.nvim",
-        cmd = "Telescope",
         run = "make",
     }
     use "natecraddock/telescope-zf-native.nvim"

@@ -20,6 +20,9 @@ M.config = function()
             layout_config = { height = 0.75, width = 0.8 },
             file_ignore_patterns = {
                 "node_modules",
+                "vendor",
+                ".articuno",
+                ".articuno-catalog",
                 "venv/",
                 "package.json",
                 "package-lock.json",
