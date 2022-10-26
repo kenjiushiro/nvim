@@ -58,7 +58,7 @@ as.map("n", "<C-b>", ":NvimTreeToggle<CR>")
 as.map(
     "n",
     "cd",
-    ":lcd %:p:h<bar>lua print('current direcotry is ' .. vim.fn.getcwd())<CR>",
+    ":lcd %:p:h<bar>lua print('current directory is ' .. vim.fn.getcwd())<CR>",
     { silent = false }
 )
 -----------------------------------------------------------------------------//
@@ -78,8 +78,6 @@ as.map("n", "<leader>hph", ":help packer.txt<CR>")
 -----------------------------------------------------------------------------//
 -- buffers {{{1
 -----------------------------------------------------------------------------//
-as.map("n", "<TAB>", ":bnext<CR>") -- buffer next
-as.map("n", "<S-TAB>", ":bprevious<CR>") -- buffer previous
 as.map("n", "<leader>b<C-t>", ":lua require'core.util'.buf_to_tab()<CR>") -- focus in new tab
 as.map("n", "<leader>bb", ":Telescope buffers<CR>") -- all buffers
 as.map("n", "<leader>cp", ':let @+ = expand("%")<CR>') -- copy filepath to clipboard
@@ -148,7 +146,7 @@ as.map("n", "]L", ":llast<CR>")
 -----------------------------------------------------------------------------//
 -- Git {{{1
 -----------------------------------------------------------------------------//
-as.map("n", "<leader>gg", ":Neogit<CR>") -- Git
+as.map("n", "<leader>gg", ":Git<CR>") -- Git
 as.map("n", "<leader>gd", ":DiffviewOpen<CR>") -- show diff
 as.map("n", "<leader>gL", ":Neogit log<CR>") -- log
 as.map("n", "<leader>gb", ":Telescope git_branches<CR>") -- git branches
