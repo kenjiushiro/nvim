@@ -107,7 +107,7 @@ local pack_use = function()
         ft = "html",
         run = "npm install --prefix server",
     }
-
+    use { 'manzeloth/live-server' }
     use {
         "iamcco/markdown-preview.nvim",
         opt = true,
@@ -188,6 +188,7 @@ local pack_use = function()
             })
         end,
     }
+    use {'mfussenegger/nvim-jdtls'}
 
     ----------------------------------------------------------------------------------------------------------------
     -- Telescope
