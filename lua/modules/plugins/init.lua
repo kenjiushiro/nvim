@@ -188,7 +188,7 @@ local pack_use = function()
             })
         end,
     }
-    use {'mfussenegger/nvim-jdtls'}
+    -- use {'mfussenegger/nvim-jdtls'}
 
     ----------------------------------------------------------------------------------------------------------------
     -- Telescope

@@ -129,6 +129,8 @@ require("mason-lspconfig").setup_handlers({
         end
         if server_name == "bashls" then
           opts.filetypes = { "bash", "zsh", "sh" }
+        elseif server_name == "omnisharp" then
+          opts.cmd = { "dotnet", "/home/kenjiushiro/.local/share/nvim/mason/packages/omnisharp/OmniSharp.dll" }
         end
         lspconfig[server_name].setup(opts)
     end,
