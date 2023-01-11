@@ -332,7 +332,7 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     use {
         "neovim/nvim-lspconfig",
-        event = "BufReadPre",
+        -- event = "BufReadPre",
         config = function()
             require "modules.lsp"
         end,
