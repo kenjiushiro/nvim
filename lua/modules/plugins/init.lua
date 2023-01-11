@@ -150,47 +150,6 @@ local pack_use = function()
     }
 
     ----------------------------------------------------------------------------------------------------------------
-    -- Lsp
-    ----------------------------------------------------------------------------------------------------------------
-    use { "ray-x/lsp_signature.nvim" }
-    use {
-      "williamboman/mason.nvim",
-    }
-    if (pcall(require, "mason")) then
-      require"mason".setup()
-      require"modules.lsp.servers"
-    end
-    use {
-      "williamboman/mason-lspconfig.nvim",
-    }
-    if (pcall(require, "mason-lspconfig")) then
-      require"mason-lspconfig".setup()
-    end
-    use {
-        "neovim/nvim-lspconfig",
-        event = "BufReadPre",
-        config = function()
-            require "modules.lsp"
-        end,
-    }
-    use { 'mfussenegger/nvim-lint' }
-    use { 'jose-elias-alvarez/null-ls.nvim' }
-
-    use{
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-        config = function()
-            local saga = require("lspsaga")
-
-            saga.init_lsp_saga({
-                border_style = "rounded",
-                saga_winblend = 30
-            })
-        end,
-    }
-    -- use {'mfussenegger/nvim-jdtls'}
-
-    ----------------------------------------------------------------------------------------------------------------
     -- Telescope
     ----------------------------------------------------------------------------------------------------------------
     use {
@@ -367,6 +326,49 @@ local pack_use = function()
         end,
     }
     use { 'KabbAmine/vCoolor.vim' }
+
+    ----------------------------------------------------------------------------------------------------------------
+    -- Lsp
+    ----------------------------------------------------------------------------------------------------------------
+    use {
+        "neovim/nvim-lspconfig",
+        event = "BufReadPre",
+        config = function()
+            require "modules.lsp"
+        end,
+    }
+    use { "ray-x/lsp_signature.nvim" }
+    use {
+      "williamboman/mason.nvim",
+    }
+    if (pcall(require, "mason")) then
+      require"mason".setup()
+      require"modules.lsp.servers"
+    end
+    use {
+      "williamboman/mason-lspconfig.nvim",
+    }
+    if (pcall(require, "mason-lspconfig")) then
+      require"mason-lspconfig".setup()
+    end
+    use { 'mfussenegger/nvim-lint' }
+    use { 'jose-elias-alvarez/null-ls.nvim' }
+
+    use{
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require("lspsaga")
+
+            saga.init_lsp_saga({
+                border_style = "rounded",
+                saga_winblend = 30
+            })
+        end,
+    }
+
+    -- use {'mfussenegger/nvim-jdtls'}
+
 end
 
 local fn, execute = vim.fn, vim.api.nvim_command

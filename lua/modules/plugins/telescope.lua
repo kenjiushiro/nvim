@@ -139,7 +139,7 @@ M.config = function()
             },
         },
     }
-    pcall(require("telescope").load_extension, "fzf")
+    pcall(require("telescope").load_extension, "zf-native")
     pcall(require("telescope").load_extension, "projects")
 end
 
