@@ -31,7 +31,6 @@ M.config = function()
                 ".mkv",
                 ".sbt/",
                 ".ivy2/",
-                "repos",
                 ".png",
                 ".jpg",
                 ".jpeg",
