@@ -354,20 +354,13 @@ local pack_use = function()
     use { 'mfussenegger/nvim-lint' }
     use { 'jose-elias-alvarez/null-ls.nvim' }
 
-    use{
+    use({
         "glepnir/lspsaga.nvim",
         branch = "main",
         config = function()
-            local saga = require("lspsaga")
-
-            saga.init_lsp_saga({
-                border_style = "rounded",
-                saga_winblend = 30
-            })
+            require('lspsaga').setup({ })
         end,
-    }
-
-    -- use {'mfussenegger/nvim-jdtls'}
+    })
 
 end
 
