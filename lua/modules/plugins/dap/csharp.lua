@@ -5,22 +5,21 @@ local M = {}
 local mason_registry = require'mason-registry'
   local dotnet_debugger = "netcoredbg"
 
-local function getProjectName()
-  local directory = vim.fn.getcwd()
+local function getProjectName(directory)
   local extension = '.csproj'
 
   local handle = io.popen('ls ' .. directory)
   for line in handle:lines() do
-    print(line)
     if string.sub(line, -string.len(extension)) == extension then
       return string.gsub(line, extension, "")
     end
   end
   handle:close()
+  return false
 end
 
-local function getProjectVersion(projectName)
-  local directory = vim.fn.getcwd() .. '/' .. projectName .. ".csproj"
+local function getProjectVersion(directory, projectName)
+  directory = directory .. '/' .. projectName .. ".csproj"
   local xmlTag = "TargetFramework"
 
   local targetFramework = io.popen('cat ' .. directory .. ' | grep ' .. xmlTag):read()
@@ -28,10 +27,35 @@ local function getProjectVersion(projectName)
   return version
 end
 
+local function selectProjectFromSolution(solutionDir)
+  local handle = io.popen('ls -d ' .. solutionDir .. '/*/')
+  local projectName
+  local projects = {}
+  for subdir in handle:lines() do
+    projectName = getProjectName(subdir)
+    if projectName then
+      table.insert(projects, subdir)
+    end
+  end
+
+  for index, project in pairs(projects) do
+    print(index .. ' ' .. project)
+  end
+
+  local selection = vim.fn.input("Select project: ")
+  return projects[tonumber(selection)]:sub(1, -2)
+end
+
 local function getProjectDll()
   local directory = vim.fn.getcwd()
-  local projectName = getProjectName()
-  local netVersion = getProjectVersion(projectName)
+  local projectName = getProjectName(directory)
+
+  if not projectName then
+    directory = selectProjectFromSolution(directory)
+    projectName = getProjectName(directory)
+  end
+
+  local netVersion = getProjectVersion(directory, projectName)
   return directory .. "/bin/Debug/" .. netVersion .. "/" .. projectName .. ".dll"
 end
 
