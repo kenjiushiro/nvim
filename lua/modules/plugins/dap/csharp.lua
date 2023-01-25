@@ -38,12 +38,16 @@ local function selectProjectFromSolution(solutionDir)
     end
   end
 
-  for index, project in pairs(projects) do
-    print(index .. ' ' .. project)
-  end
+  if next(projects) == nil then
+    error('No projects were found')
+  else
+    for index, project in ipairs(projects) do
+      print(index .. ' ' .. project)
+    end
 
-  local selection = vim.fn.input("Select project: ")
-  return projects[tonumber(selection)]:sub(1, -2)
+    local selection = vim.fn.input("Select project: ")
+    return projects[tonumber(selection)]:sub(1, -2)
+  end
 end
 
 local function getProjectDll()

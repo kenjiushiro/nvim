@@ -169,6 +169,7 @@ as.map("n", "<leader>gn", ":GitConflictNextConflict<CR>")
 as.map("n", "<leader>gp", ":GitConflictPrevConflict<CR>")
 as.map("n", "<leader>ga", ":GitConflictChooseBoth<CR>")
 as.map("n", "<leader>gx", ":GitConflictChooseNone<CR>")
+as.map("n", "<leader>gl", ":Gitsigns blame_line<CR>")
 -----------------------------------------------------------------------------//
 -- Telescope {{{1
 -----------------------------------------------------------------------------//
