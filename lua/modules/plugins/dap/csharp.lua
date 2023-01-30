@@ -41,11 +41,12 @@ local function selectProjectFromSolution(solutionDir)
   if next(projects) == nil then
     error('No projects were found')
   else
+    local projectNames = "Select project: \n"
     for index, project in ipairs(projects) do
-      print(index .. ' ' .. project)
+      projectNames = projectNames .. index .. ' ' .. project .. "\n"
     end
 
-    local selection = vim.fn.input("Select project: ")
+    local selection = vim.fn.input(projectNames)
     return projects[tonumber(selection)]:sub(1, -2)
   end
 end
