@@ -35,6 +35,7 @@ M.clang = fmt {
         AlignConsecutiveMacros: true,
         BreakBeforeBraces: Linux,
         AlignConsecutiveDeclarations: true,
+        NamespaceIndentation: All,
         AlwaysBreakAfterReturnType: None}'
         ]],
     },
