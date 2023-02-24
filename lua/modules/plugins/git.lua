@@ -9,6 +9,7 @@ M.gitsigns = function()
             topdelete = { hl = "GitSignsDelete", text = "契" },
             changedelete = { hl = "GitSignsChange", text = "~" },
         },
+        current_line_blame = true,
         keymaps = { noremap = true, buffer = true },
     }
 end
