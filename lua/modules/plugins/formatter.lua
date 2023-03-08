@@ -27,16 +27,15 @@ M.clang = fmt {
     args = {
         "-assume-filename=" .. vim.fn.expand "%:t",
         [[
-        -style='{IndentWidth: 4,
+        -style='{UseTab: Never,
+        IndentWidth: 4,
+        BreakBeforeBraces: Allman,
         AlignConsecutiveAssignments: true,
-        AllowShortBlocksOnASingleLine: Empty,
-        AllowShortLoopsOnASingleLine: true,
-        AllowShortIfStatementsOnASingleLine: true,
-        AlignConsecutiveMacros: true,
-        BreakBeforeBraces: Linux,
-        AlignConsecutiveDeclarations: true,
+        AllowShortIfStatementsOnASingleLine: false,
+        IndentCaseLabels: false,
         NamespaceIndentation: All,
-        AlwaysBreakAfterReturnType: None}'
+        AlignConsecutiveDeclarations: true,
+        ColumnLimit: 0}'
         ]],
     },
     stdin = true,
