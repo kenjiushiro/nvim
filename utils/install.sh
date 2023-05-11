@@ -62,7 +62,7 @@ install() {
     check_nvim_config
     info "Cloning neovim configuration"
     if git clone https://github.com/kenjiushiro/nvim.git "$HOME/.config/nvim" >/dev/null 2>&1 &&
-        cp ~/.config/nvim/utils/config_example.lua ~/.config/nvim/lua/config.lua; then
+        # cp ~/.config/nvim/utils/config_example.lua ~/.config/nvim/lua/config.lua; then
         success "Successfully clone"
         nvim +PackerSync
     else
