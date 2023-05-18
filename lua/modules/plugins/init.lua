@@ -253,31 +253,32 @@ local pack_use = function()
     --     },
     --   }
     -- }
-    use {
-        "mfussenegger/nvim-dap",
-    }
-    if (pcall(require, "dap")) then
-      require"modules.plugins.dap".setup()
-    end
 
-    use {'mfussenegger/nvim-dap-python'}
+    -- use {
+    --     "mfussenegger/nvim-dap",
+    -- }
+    -- if (pcall(require, "dap")) then
+    --   require"modules.plugins.dap".setup()
+    -- end
 
-    use {'leoluz/nvim-dap-go'}
+    -- use {'mfussenegger/nvim-dap-python'}
+
+    -- use {'leoluz/nvim-dap-go'}
 
     use { 'blueyed/vim-diminactive' }
 
-    use {
-        "rcarriga/nvim-dap-ui",
-        requires = { "mfussenegger/nvim-dap" },
-    }
-    use {
-        "Pocco81/DAPInstall.nvim",
-        requires = { "mfussenegger/nvim-dap" },
-    }
-    use({
-        "theHamsta/nvim-dap-virtual-text",
-        requires = { "mfussenegger/nvim-dap" },
-    })
+    -- use {
+    --     "rcarriga/nvim-dap-ui",
+    --     requires = { "mfussenegger/nvim-dap" },
+    -- }
+    -- use {
+    --     "Pocco81/DAPInstall.nvim",
+    --     requires = { "mfussenegger/nvim-dap" },
+    -- }
+    -- use({
+    --     "theHamsta/nvim-dap-virtual-text",
+    --     requires = { "mfussenegger/nvim-dap" },
+    -- })
 
     ----------------------------------------------------------------------------------------------------------------
     -- DB
