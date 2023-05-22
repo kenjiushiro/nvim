@@ -127,6 +127,15 @@ local pack_use = function()
     use { "haya14busa/vim-asterisk" }
     use { 'michaelb/sniprun', run = 'bash ./install.sh'}
     use {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+      after = 'nvim-treesitter',
+      requires = { "nvim-treesitter/nvim-treesitter" },
+      config = function()
+        require("modules.plugins.treesitter-textobjects").config()
+      end
+      }
+
+    use {
       "cuducos/yaml.nvim",
       ft = {"yaml"}, -- optional
       requires = {
@@ -363,6 +372,7 @@ local pack_use = function()
     })
 
 end
+
 
 local fn, execute = vim.fn, vim.api.nvim_command
 local install_path = DATA_PATH .. "/site/pack/packer/start/packer.nvim"
