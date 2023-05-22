@@ -24,6 +24,7 @@ M.config = function()
                 ".articuno",
                 ".articuno-catalog",
                 "venv/",
+                "dist/",
                 "package-lock.json",
                 ".git/",
                 ".m2/",
