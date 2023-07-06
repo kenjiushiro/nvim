@@ -83,6 +83,15 @@ local pack_use = function()
     -- Editing
     ----------------------------------------------------------------------------------------------------------------
     use { "kevinhwang91/nvim-bqf", ft = "qf" }
+    use {
+      'jinh0/eyeliner.nvim',
+      config = function()
+        require'eyeliner'.setup {
+          highlight_on_key = true,
+          dim = true,
+        }
+      end
+    }
     use { "machakann/vim-sandwich", event = "BufRead" }
     use { "tpope/vim-speeddating" }
     use { "Konfekt/vim-CtrlXA" }
@@ -364,7 +373,17 @@ local pack_use = function()
       "williamboman/mason-lspconfig.nvim",
     }
     if (pcall(require, "mason-lspconfig")) then
-      require"mason-lspconfig".setup()
+      require"mason-lspconfig".setup({
+        ensure_installed = {
+          'tsserver',
+          'html',
+          'eslint',
+          'pylsp',
+          'csharp_ls',
+          'cssls',
+          'clangd',
+        }
+      })
     end
     use { 'mfussenegger/nvim-lint' }
     use { 'jose-elias-alvarez/null-ls.nvim' }
