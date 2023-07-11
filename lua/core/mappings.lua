@@ -55,12 +55,7 @@ as.map("v", "@", ":norm!@")
 -----------------------------------------------------------------------------//
 as.map("n", "<C-b>", ":NvimTreeToggle<CR>")
 -- change directory to current file
-as.map(
-    "n",
-    "cd",
-    ":lcd %:p:h<bar>lua print('current directory is ' .. vim.fn.getcwd())<CR>",
-    { silent = false }
-)
+as.map("n", "cd", ":lcd %:p:h<bar>lua print('current directory is ' .. vim.fn.getcwd())<CR>", { silent = false })
 -----------------------------------------------------------------------------//
 -- help {{{1
 -----------------------------------------------------------------------------//
@@ -94,17 +89,17 @@ as.map("n", "<leader>b[", ":bp<CR>") -- buffer previous
 as.map("n", "<leader>bn", [[:enew<CR>]], { silent = false }) -- new buffer
 as.map("n", "<leader>bf", [[:e <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new file
 as.map("n", "<leader>bv", [[:vsp <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new split
-as.map('n', '<leader>s', ":HopChar2<CR>")
-as.map('n', '<leader>S', ":HopChar1<CR>")
+as.map("n", "<leader>s", ":HopChar2<CR>")
+as.map("n", "<leader>S", ":HopChar1<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
-as.map('n', '<leader>tef', ":TestFile -strategy=neovim<CR>")
-as.map('n', '<leader>ten', ":TestNearest -strategy=neovim<CR>")
-as.map('n', '<leader>tel', ":TestLast -strategy=neovim<CR>")
-as.map('n', '<leader>tev', ":TestVisit<CR>")
-as.map('n', '<leader>tes', ":TestSuite -strategy=neovim<CR>")
-as.map('n', '<leader>tep', ":lua require('dap-python').test_class()<CR>")
+as.map("n", "<leader>tef", ":TestFile -strategy=neovim<CR>")
+as.map("n", "<leader>ten", ":TestNearest -strategy=neovim<CR>")
+as.map("n", "<leader>tel", ":TestLast -strategy=neovim<CR>")
+as.map("n", "<leader>tev", ":TestVisit<CR>")
+as.map("n", "<leader>tes", ":TestSuite -strategy=neovim<CR>")
+as.map("n", "<leader>tep", ":lua require('dap-python').test_class()<CR>")
 -----------------------------------------------------------------------------//
 -- tabs {{{1
 -----------------------------------------------------------------------------//
@@ -146,7 +141,8 @@ as.map("n", "]L", ":llast<CR>")
 -----------------------------------------------------------------------------//
 -- Git {{{1
 -----------------------------------------------------------------------------//
-as.map("n", "<leader>gg", ":LazyGit<CR>") -- Git
+as.map("n", "<leader>gg", ":Git<CR>") -- Git
+as.map("n", "<leader>lg", ":LazyGit<CR>") -- Git
 as.map("n", "<leader>gd", ":DiffviewOpen<CR>") -- show diff
 as.map("n", "<leader>gL", ":Neogit log<CR>") -- log
 as.map("n", "<leader>gb", ":Telescope git_branches<CR>") -- git branches
@@ -241,6 +237,6 @@ as.map("n", "<leader>rl", ":lwindow<CR>")
 as.map("n", "<leader>rJ", [[:<C-u>call append(line("."), repeat([""], v:count1))<CR>]]) -- append line down without insert mode
 as.map("n", "<leader>rK", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]]) -- append line up without insert mode
 
-as.map('n', '<leader>sql', ":tabnew<CR>:DBUI<CR>")
-as.map('n', '<leader>re', ":HTTPClientDoRequest<CR>")
+as.map("n", "<leader>sql", ":tabnew<CR>:DBUI<CR>")
+as.map("n", "<leader>re", ":HTTPClientDoRequest<CR>")
 -- }}}
