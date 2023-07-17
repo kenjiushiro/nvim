@@ -279,9 +279,6 @@ local pack_use = function()
     --     },
     --   }
     -- }
-    use({
-        "mfussenegger/nvim-dap",
-    })
     if pcall(require, "dap") then
         require("modules.plugins.dap").setup()
     end
@@ -356,47 +353,56 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     -- Lsp
     ----------------------------------------------------------------------------------------------------------------
+    -- use({
+    --     "neovim/nvim-lspconfig",
+    --     -- event = "BufReadPre",
+    --     config = function()
+    --         require("modules.lsp")
+    --     end,
+    -- })
+    use({ "ray-x/lsp_signature.nvim" })
+
+    use({
+        "williamboman/mason.nvim",
+        config = function()
+            require("mason").setup()
+        end,
+    })
     use({
         "neovim/nvim-lspconfig",
-        -- event = "BufReadPre",
         config = function()
             require("modules.lsp")
         end,
     })
-    use({ "ray-x/lsp_signature.nvim" })
     use({
-        "williamboman/mason.nvim",
+        "mfussenegger/nvim-dap",
     })
     use({
         "jay-babu/mason-nvim-dap.nvim",
+        config = function()
+            require("mason-nvim-dap").setup()
+        end,
     })
-
-    if pcall(require, "mason") then
-        require("mason").setup()
-        require("mason-nvim-dap").setup({
-            ensure_installed = { "python", "bash", "php", "js", "node2" },
-        })
-        require("modules.lsp.servers")
-    end
     use({
         "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("modules.lsp.servers")
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "tsserver",
+                    "html",
+                    "eslint",
+                    "pylsp",
+                    "csharp_ls",
+                    "cssls",
+                    "clangd",
+                    "stylua",
+                    "prettier",
+                    "clang-format",
+                },
+            })
+        end,
     })
-    if pcall(require, "mason-lspconfig") then
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "tsserver",
-                "html",
-                "eslint",
-                "pylsp",
-                "csharp_ls",
-                "cssls",
-                "clangd",
-                "stylua",
-                "prettier",
-                "clang-format",
-            },
-        })
-    end
     use({ "mfussenegger/nvim-lint" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
