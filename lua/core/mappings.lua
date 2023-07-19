@@ -141,7 +141,7 @@ as.map("n", "]L", ":llast<CR>")
 -----------------------------------------------------------------------------//
 -- Git {{{1
 -----------------------------------------------------------------------------//
-as.map("n", "<leader>gg", ":Git<CR>") -- Git
+as.map("n", "<leader>gg", ":Neogit<CR>") -- Git
 as.map("n", "<leader>lg", ":LazyGit<CR>") -- Git
 as.map("n", "<leader>gd", ":DiffviewOpen<CR>") -- show diff
 as.map("n", "<leader>gL", ":Neogit log<CR>") -- log
