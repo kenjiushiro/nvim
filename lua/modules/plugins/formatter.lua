@@ -99,7 +99,7 @@ M.config = function()
             scss = { M.prettier() },
             markdown = { M.prettier() },
             javascript = { M.prettier({ "--single-quote" }) },
-            typescript = { M.prettier({ "--single-quote" }) },
+            typescript = { M.prettier({ "--tab-width 4" }) },
             javascriptreact = { M.prettier({ "--single-quote" }) },
             typescriptreact = { M.prettier({ "--single-quote" }) },
         },
