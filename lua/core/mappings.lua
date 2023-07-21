@@ -91,6 +91,7 @@ as.map("n", "<leader>bf", [[:e <C-R>=expand("%:p:h") . "/" <CR>]], { silent = fa
 as.map("n", "<leader>bv", [[:vsp <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new split
 as.map("n", "<leader>s", ":HopChar2<CR>")
 as.map("n", "<leader>S", ":HopChar1<CR>")
+as.map("n", "<leader>o", ":Other<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
