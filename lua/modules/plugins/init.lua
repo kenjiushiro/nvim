@@ -124,6 +124,48 @@ local pack_use = function()
         end,
     })
     use({
+        "rgroli/other.nvim",
+        config = function()
+            require("other-nvim").setup({
+                mappings = {
+                    -- builtin mappings
+                    "livewire",
+                    "angular",
+                    "laravel",
+                    "rails",
+                    "golang",
+                    -- custom mapping
+                    {
+                        pattern = "/path/to/file/src/app/(.*)/.*.ext$",
+                        target = "/path/to/file/src/view/%1/",
+                        transformer = "lowercase",
+                    },
+                },
+                transformers = {
+                    -- defining a custom transformer
+                    lowercase = function(inputString)
+                        return inputString:lower()
+                    end,
+                },
+                style = {
+                    -- How the plugin paints its window borders
+                    -- Allowed values are none, single, double, rounded, solid and shadow
+                    border = "solid",
+
+                    -- Column seperator for the window
+                    seperator = "|",
+
+                    -- width of the window in percent. e.g. 0.5 is 50%, 1.0 is 100%
+                    width = 0.7,
+
+                    -- min height in rows.
+                    -- when more columns are needed this value is extended automatically
+                    minHeight = 2,
+                },
+            })
+        end,
+    })
+    use({
         "mbbill/undotree",
         cmd = "UndotreeToggle",
         config = "vim.g.undotree_WindowLayout = 2",
@@ -358,46 +400,29 @@ local pack_use = function()
     -- Lsp
     ----------------------------------------------------------------------------------------------------------------
     use({
-        "neovim/nvim-lspconfig",
-        -- event = "BufReadPre",
+        "williamboman/mason.nvim",
         config = function()
+            print("mason")
+            require("mason").setup()
+        end,
+    })
+
+    use({
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("mason-lspconfig").setup()
+            require("modules.lsp.servers")
+        end,
+    })
+    use({
+        "neovim/nvim-lspconfig",
+        config = function()
+            print("modules.lsp")
             require("modules.lsp")
         end,
     })
     use({ "ray-x/lsp_signature.nvim" })
-    use({
-        "williamboman/mason.nvim",
-    })
-    use({
-        "jay-babu/mason-nvim-dap.nvim",
-    })
 
-    if pcall(require, "mason") then
-        require("mason").setup()
-        require("mason-nvim-dap").setup({
-            ensure_installed = { "python", "bash", "php", "js", "node2" },
-        })
-        require("modules.lsp.servers")
-    end
-    use({
-        "williamboman/mason-lspconfig.nvim",
-    })
-    if pcall(require, "mason-lspconfig") then
-        require("mason-lspconfig").setup({
-            ensure_installed = {
-                "tsserver",
-                "html",
-                "eslint",
-                "pylsp",
-                "csharp_ls",
-                "cssls",
-                "clangd",
-                "stylua",
-                "prettier",
-                "clang-format",
-            },
-        })
-    end
     use({ "mfussenegger/nvim-lint" })
     use({ "jose-elias-alvarez/null-ls.nvim" })
 
