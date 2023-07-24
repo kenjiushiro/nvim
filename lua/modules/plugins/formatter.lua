@@ -78,6 +78,12 @@ M.latex = fmt({
     stdin = true,
 })
 
+M.sqlformatter = fmt({
+    exe = "sql-formatter",
+    args = { "-l plsql" },
+    stdin = true,
+})
+
 M.config = function()
     require("formatter").setup({
         logging = false,
@@ -102,6 +108,7 @@ M.config = function()
             typescript = { M.prettier({ "--tab-width 4" }) },
             javascriptreact = { M.prettier({ "--single-quote" }) },
             typescriptreact = { M.prettier({ "--single-quote" }) },
+            sql = { M.sqlformatter },
         },
     })
 end
