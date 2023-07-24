@@ -388,6 +388,9 @@ local pack_use = function()
         "mfussenegger/nvim-dap",
     })
     use({
+        "ray-x/lsp_signature.nvim",
+    })
+    use({
         "jay-babu/mason-nvim-dap.nvim",
         config = function()
             require("mason-nvim-dap").setup()
