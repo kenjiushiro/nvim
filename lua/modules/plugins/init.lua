@@ -108,33 +108,30 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     -- Utils
     ----------------------------------------------------------------------------------------------------------------
-    use({
-        "turbio/bracey.vim",
-        opt = true,
-        ft = "html",
-        run = "npm install --prefix server",
-    })
-    use({ "manzeloth/live-server" })
-    use({
-        "iamcco/markdown-preview.nvim",
-        opt = true,
-        ft = "markdown",
-        run = function()
-            vim.fn["mkdp#util#install"]()
-        end,
-    })
+    -- use({
+    --     "turbio/bracey.vim",
+    --     opt = true,
+    --     ft = "html",
+    --     run = "npm install --prefix server",
+    -- })
+    -- use({
+    --     "iamcco/markdown-preview.nvim",
+    --     opt = true,
+    --     ft = "markdown",
+    --     run = function()
+    --         vim.fn["mkdp#util#install"]()
+    --     end,
+    -- })
     use({
         "rgroli/other.nvim",
         config = function()
             require("other-nvim").setup({
                 mappings = {
-                    -- builtin mappings
                     "livewire",
                     "angular",
                     "laravel",
                     "rails",
                     "golang",
-                    -- custom mapping
                     {
                         pattern = "/path/to/file/src/app/(.*)/.*.ext$",
                         target = "/path/to/file/src/view/%1/",
@@ -182,15 +179,6 @@ local pack_use = function()
         config = function()
             require("modules.plugins.treesitter-textobjects").config()
         end,
-    })
-
-    use({
-        "cuducos/yaml.nvim",
-        ft = { "yaml" }, -- optional
-        requires = {
-            "nvim-treesitter/nvim-treesitter",
-            "nvim-telescope/telescope.nvim", -- optional
-        },
     })
     use({
         "folke/which-key.nvim",
@@ -366,15 +354,6 @@ local pack_use = function()
         end,
     })
     use({
-        "lukas-reineke/indent-blankline.nvim",
-        cond = function()
-            return as._default(vim.g.code_indent_guides, false)
-        end,
-        config = function()
-            require("modules.plugins.indent-guides").config()
-        end,
-    })
-    use({
         "goolord/alpha-nvim",
         config = function()
             require("modules.plugins.alpha").config()
@@ -394,8 +373,6 @@ local pack_use = function()
             })
         end,
     })
-    use({ "KabbAmine/vCoolor.vim" })
-
     ----------------------------------------------------------------------------------------------------------------
     -- Lsp
     ----------------------------------------------------------------------------------------------------------------
@@ -421,11 +398,43 @@ local pack_use = function()
             require("modules.lsp")
         end,
     })
-    use({ "ray-x/lsp_signature.nvim" })
+    use({
+        "mfussenegger/nvim-dap",
+    })
+    use({
+        "jay-babu/mason-nvim-dap.nvim",
+        config = function()
+            require("mason-nvim-dap").setup()
+        end,
+    })
+    use({
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+            require("modules.lsp.servers")
+            require("mason-lspconfig").setup({
+                ensure_installed = {
+                    "html",
+                    "tsserver",
+                    "cssls",
+                    "clangd",
+                    "python-lsp-server",
+                    "csharp_ls",
+                    "csharp-language-server",
+                    "sqlls",
 
-    use({ "mfussenegger/nvim-lint" })
-    use({ "jose-elias-alvarez/null-ls.nvim" })
-
+                    -- "netcoredbg",
+                    -- "bash-debug-adapter",
+                    -- "black",
+                    -- "clang-format",
+                    -- "stylua",
+                    -- "debugpy",
+                    -- "sql-formatter",
+                    -- "eslint",
+                    -- "prettier",
+                },
+            })
+        end,
+    })
     use({
         "glepnir/lspsaga.nvim",
         branch = "main",
