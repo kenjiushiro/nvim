@@ -372,12 +372,7 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     -- Lsp
     ----------------------------------------------------------------------------------------------------------------
-    use({
-        "williamboman/mason.nvim",
-        config = function()
-            require("mason").setup()
-        end,
-    })
+    use({ "williamboman/mason.nvim" })
     use({
         "neovim/nvim-lspconfig",
         config = function()
@@ -399,7 +394,7 @@ local pack_use = function()
     use({
         "williamboman/mason-lspconfig.nvim",
         config = function()
-            require("modules.lsp.servers")
+            require("mason").setup()
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "html",
@@ -421,6 +416,7 @@ local pack_use = function()
                     -- "eslint",
                     -- "prettier",
                 },
+                require("modules.lsp.servers"),
             })
         end,
     })
