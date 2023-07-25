@@ -10,6 +10,7 @@ M.config = function()
                 disable = { "html" },
             },
             indent = { enable = false },
+            on_attach = require("modules.plugins.treesitter-on-attach"),
             autopairs = { enable = true },
             playground = {
                 enable = true,
