@@ -401,11 +401,11 @@ local pack_use = function()
                     "tsserver",
                     "cssls",
                     "clangd",
-                    "python-lsp-server",
                     "csharp_ls",
-                    "csharp-language-server",
                     "sqlls",
 
+                    -- "python-lsp-server",
+                    -- "csharp-language-server",
                     -- "netcoredbg",
                     -- "bash-debug-adapter",
                     -- "black",
