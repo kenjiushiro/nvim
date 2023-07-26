@@ -403,18 +403,6 @@ local pack_use = function()
                     "clangd",
                     "csharp_ls",
                     "sqlls",
-
-                    -- "python-lsp-server",
-                    -- "csharp-language-server",
-                    -- "netcoredbg",
-                    -- "bash-debug-adapter",
-                    -- "black",
-                    -- "clang-format",
-                    -- "stylua",
-                    -- "debugpy",
-                    -- "sql-formatter",
-                    -- "eslint",
-                    -- "prettier",
                 },
                 require("modules.lsp.servers"),
             })
