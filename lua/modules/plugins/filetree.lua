@@ -1,7 +1,7 @@
 local M = {}
 
 M.config = function()
-    local tree_cb = require("nvim-tree.config").nvim_tree_callback
+    -- local tree_cb = require("nvim-tree.config").nvim_tree_callback
     require("nvim-tree").setup({
         -- disables netrw completely
         disable_netrw = true,
@@ -50,12 +50,6 @@ M.config = function()
             side = vim.g.code_explorer_side or "right",
             -- if true the tree will resize itself after opening a file
             -- auto_resize = false,
-            mappings = {
-                -- custom only false will merge the list with the default mappings
-                -- if true, it will only use your list to set the mappings
-                custom_only = false,
-                -- list of mappings to set on the tree manually
-            },
         },
     })
     vim.g.nvim_tree_ignore = { ".git", "node_modules", ".cache" }
