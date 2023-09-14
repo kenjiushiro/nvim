@@ -7,7 +7,7 @@ if colProcess.count < 2 then
     Set wsc = CreateObject("WScript.Shell")
     hm = Minute(Now()) + 100 * Hour(Now())
 
-    hora = clng(inputbox("? (HHMM)","?","2200"))
+    hora = clng(inputbox("? (HHMM)","?","1800"))
 
     Do While hm < hora
         WScript.Sleep (240 * 1000)
@@ -19,5 +19,5 @@ else
     msgbox "off :("
     for each p in colProcess
         p.Terminate
-    next 
+    next
 end if
