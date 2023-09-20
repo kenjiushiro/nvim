@@ -341,12 +341,19 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     -- UI
     ----------------------------------------------------------------------------------------------------------------
+    use({
+        "nanozuki/tabby.nvim",
+        config = function()
+            require("modules.plugins.tabby")
+        end,
+    })
     use("rafamadriz/themes.nvim")
     use("morhetz/gruvbox")
     use({
-        "rafamadriz/statusline",
+        "nvim-lualine/lualine.nvim",
+        requires = { "nvim-tree/nvim-web-devicons", opt = true },
         config = function()
-            require("modules.plugins.statusline").config()
+            require("modules.plugins.lualine").config()
         end,
     })
     use({
