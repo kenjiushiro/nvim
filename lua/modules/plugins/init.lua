@@ -346,7 +346,6 @@ local pack_use = function()
     -- UI
     ----------------------------------------------------------------------------------------------------------------
     use("rafamadriz/themes.nvim")
-    use("romgrk/barbar.nvim")
     use("morhetz/gruvbox")
     use({
         "rafamadriz/statusline",
