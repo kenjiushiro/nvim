@@ -77,7 +77,7 @@ as.map("n", "<leader>b<C-t>", ":lua require'core.util'.buf_to_tab()<CR>") -- foc
 as.map("n", "<leader>bb", ":Telescope buffers<CR>") -- all buffers
 as.map("n", "<leader>cp", ':let @+ = expand("%")<CR>') -- copy filepath to clipboard
 as.map("n", "<leader>w", ":update<CR>") -- save buffer
-as.map("n", "<leader>q", ":q<CR>") -- save buffer
+as.map("n", "<leader>q", ":BufferClose<CR>") -- save buffer
 as.map("v", "<leader>w", "<ESC>:update<CR>") -- save buffer
 as.map("n", "<leader>bS", ":silent! wa<CR>") -- save all buffers
 as.map("n", "<leader>bq", ":lua require'core.util'.delete_buffer()<CR>") -- quit buffer
