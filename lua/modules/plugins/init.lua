@@ -348,7 +348,7 @@ local pack_use = function()
         end,
     })
     use("rafamadriz/themes.nvim")
-    use("morhetz/gruvbox")
+    use("sainnhe/gruvbox-material")
     use({
         "nvim-lualine/lualine.nvim",
         requires = { "nvim-tree/nvim-web-devicons", opt = true },
