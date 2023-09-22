@@ -8,7 +8,13 @@ local pack_use = function()
     -- Required by others
     ----------------------------------------------------------------------------------------------------------------
     use({ "nvim-lua/plenary.nvim", module = "plenary" })
-    use({ "kyazdani42/nvim-web-devicons", module = "nvim-web-devicons" })
+    use({
+        "kyazdani42/nvim-web-devicons",
+        module = "nvim-web-devicons",
+        config = function()
+            require("modules.plugins.dev-icons").config()
+        end,
+    })
 
     ----------------------------------------------------------------------------------------------------------------
     -- Completion
