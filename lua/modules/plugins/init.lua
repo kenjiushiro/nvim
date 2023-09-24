@@ -414,7 +414,7 @@ local pack_use = function()
                     "tsserver",
                     "cssls",
                     "clangd",
-                    "csharp_ls",
+                    "lua_ls",
                     "sqlls",
                 },
                 require("modules.lsp.servers"),
