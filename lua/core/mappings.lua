@@ -240,4 +240,5 @@ as.map("n", "<leader>rK", [[:<C-u>call append(line(".")-1, repeat([""], v:count1
 
 as.map("n", "<leader>sql", ":tabnew<CR>:DBUI<CR>")
 as.map("n", "<leader>re", ":HTTPClientDoRequest<CR>")
+as.map("n", "<leader>tt", ":Lspsaga term_toggle<CR>")
 -- }}}
