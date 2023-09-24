@@ -403,9 +403,7 @@ local pack_use = function()
                     "tsserver",
                     "cssls",
                     "clangd",
-                    "python-lsp-server",
-                    "csharp_ls",
-                    "csharp-language-server",
+                    "lua_ls",
                     "sqlls",
 
                     -- "netcoredbg",
