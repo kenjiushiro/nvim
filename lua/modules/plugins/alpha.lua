@@ -1,9 +1,9 @@
 local M = {}
-local banners = require'modules.plugins.banners'
+local banners = require("modules.plugins.banners")
 
 M.config = function()
-    local alpha = require "alpha"
-    local dashboard = require "alpha.themes.dashboard"
+    local alpha = require("alpha")
+    local dashboard = require("alpha.themes.dashboard")
     math.randomseed(os.time())
     dashboard.section.header.val = banners[math.random(#banners)]
     dashboard.section.buttons.val = {
