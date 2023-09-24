@@ -419,7 +419,7 @@ local pack_use = function()
                     "tsserver",
                     "cssls",
                     "clangd",
-                    "csharp_ls",
+                    "lua_ls",
                     "sqlls",
 
                     -- "python-lsp-server",
