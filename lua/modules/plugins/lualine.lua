@@ -4,7 +4,7 @@ M.config = function()
     lualine.setup({
         options = {
             theme = "gruvbox",
-            component_separators = "|",
+            component_separators = "",
             section_separators = { left = "", right = "" },
         },
         sections = {
@@ -14,7 +14,7 @@ M.config = function()
                 {
                     "diagnostics",
                     sections = { "error", "warn", "info", "hint" },
-                    symbols = { error = " " , warn = " ", info = " ", hint = " " },
+                    symbols = { error = " ", warn = " ", info = " ", hint = " " },
                 },
             },
         },
