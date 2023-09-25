@@ -14,7 +14,7 @@ M.config = function()
                 {
                     "diagnostics",
                     sections = { "error", "warn", "info", "hint" },
-                    symbols = { error = " " , warn = " ", info = " ", hint = "" },
+                    symbols = { error = " " , warn = " ", info = " ", hint = " " },
                 },
             },
         },
