@@ -343,6 +343,7 @@ local pack_use = function()
     ----------------------------------------------------------------------------------------------------------------
     use({ "https://github.com/tpope/vim-dadbod" })
     use({ "https://github.com/kristijanhusak/vim-dadbod-ui" })
+    use({ "https://github.com/kristijanhusak/vim-dadbod-completion" })
 
     ----------------------------------------------------------------------------------------------------------------
     -- UI
