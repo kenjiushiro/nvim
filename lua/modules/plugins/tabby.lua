@@ -21,7 +21,7 @@ require("tabby.tabline").set(function(line)
                 tab.is_current() and "" or "",
                 tab.current_win().file_icon(),
                 "",
-                tab.name() or "Neovim",
+                tab.name() == "[No Name]" and "Neovim" or tab.name(),
                 tab.close_btn(""),
                 line.sep("", hl, theme.fill),
                 hl = hl,
