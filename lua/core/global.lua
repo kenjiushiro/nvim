@@ -1,6 +1,6 @@
 --- store all callbacks in one global table so they are able to survive re-requiring this file
 _AsGlobalCallbacks = _AsGlobalCallbacks or {}
-DATA_PATH = vim.fn.stdpath "data"
+DATA_PATH = vim.fn.stdpath("data")
 
 _G.as = {
     _store = _AsGlobalCallbacks,
@@ -103,5 +103,5 @@ function as.select_theme(theme)
             return default
         end
     end
-    return "default"
+    return default
 end
