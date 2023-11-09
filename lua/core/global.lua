@@ -90,7 +90,7 @@ end
 
 function as.select_theme(theme)
     local all_colors = vim.fn.getcompletion("", "color")
-    local default = "gruvbox"
+    local default = "gruvbox-material"
     local fmt = string.format
     for _, v in pairs(all_colors) do
         if theme == v then
