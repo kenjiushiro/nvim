@@ -3,6 +3,7 @@
 vim.opt.timeoutlen = as._default_num(vim.g.code_timeoutlen, 300)
 vim.opt.updatetime = as._default_num(vim.g.code_updatetime, 300)
 vim.opt.ttimeoutlen = 10
+vim.opt.conceallevel = 2
 -----------------------------------------------------------------------------//
 -- Theme {{{1
 -----------------------------------------------------------------------------//
@@ -27,7 +28,7 @@ vim.opt.fillchars = {
 -----------------------------------------------------------------------------//
 -- Diff {{{1
 -----------------------------------------------------------------------------//
-vim.opt.diffopt:append {
+vim.opt.diffopt:append({
     "vertical",
     "iwhite",
     "hiddenoff",
@@ -35,11 +36,11 @@ vim.opt.diffopt:append {
     "context:4",
     "algorithm:histogram",
     "indent-heuristic",
-}
+})
 -----------------------------------------------------------------------------//
 -- Grep program {{{1
 -----------------------------------------------------------------------------//
-if vim.fn.executable "rg" == 1 then
+if vim.fn.executable("rg") == 1 then
     vim.opt.grepprg = "rg --vimgrep --no-heading --smart-case"
 end
 -----------------------------------------------------------------------------//
@@ -102,29 +103,24 @@ vim.opt.completeopt = "menuone,noinsert,noselect"
 if as._default(vim.g.code_cursor_block, false) then
     vim.opt.guicursor = ""
 end
-vim.opt.shortmess:append "c"
-vim.opt.iskeyword:append "-"
-vim.opt.path:append ".,**"
+vim.opt.shortmess:append("c")
+vim.opt.iskeyword:append("-")
+vim.opt.path:append(".,**")
 
 -----------------------------------------------------------------------------//
 -- WSL Clipboard {{{1
 -----------------------------------------------------------------------------//
 vim.opt.clipboard = "unnamedplus"
 
-if vim.fn.has('wsl') == 1 then
+if vim.fn.has("wsl") == 1 then
+    vim.api.nvim_create_autocmd("TextYankPost", {
 
-vim.api.nvim_create_autocmd('TextYankPost', {
+        group = vim.api.nvim_create_augroup("Yank", { clear = true }),
 
-group = vim.api.nvim_create_augroup('Yank', { clear = true }),
-
-callback = function()
-
-vim.fn.system('clip.exe', vim.fn.getreg('"'))
-
-end,
-
-})
-
+        callback = function()
+            vim.fn.system("clip.exe", vim.fn.getreg('"'))
+        end,
+    })
 end
 
 vim.opt.mouse = "a"
