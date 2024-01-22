@@ -110,7 +110,29 @@ local pack_use = function()
     })
     use({ "wellle/targets.vim", event = { "BufEnter" } })
     use({ "tommcdo/vim-exchange", keys = { { "n", "cx" }, { "v", "X" } } })
+    use({
+        "epwalsh/obsidian.nvim",
+        tag = "*",
+        requires = {
+            "nvim-lua/plenary.nvim",
+        },
+        config = function()
+            require("obsidian").setup({
+                workspaces = {
+                    {
+                        name = "personal",
+                        path = "~/vaults/personal",
+                    },
+                    {
+                        name = "work",
+                        path = "~/vaults/work",
+                    },
+                },
 
+                -- see below for full list of options 👇
+            })
+        end,
+    })
     ----------------------------------------------------------------------------------------------------------------
     -- Utils
     ----------------------------------------------------------------------------------------------------------------
