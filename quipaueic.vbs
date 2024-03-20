@@ -1,4 +1,10 @@
 Dim objWMIService, colProcess
+if WScript.Arguments.Count > 0 then
+  hora = WScript.Arguments(0)
+else
+  hora = 1800
+end if
+
 Dim strComputer, strList, p
 strComputer = "."
 Set objWMIService = GetObject("winmgmts:" & "{impersonationLevel=impersonate}!\\" & strComputer & "\root\cimv2")
@@ -7,8 +13,7 @@ if colProcess.count < 2 then
     Set wsc = CreateObject("WScript.Shell")
     hm = Minute(Now()) + 100 * Hour(Now())
 
-    hora = clng(inputbox("? (HHMM)","?","1800"))
-
+    wscript.echo "Keeping awake till " & hora
     Do While hm < hora
         WScript.Sleep (240 * 1000)
         wsc.Sendkeys ("{SCROLLLOCK 2}")
