@@ -323,18 +323,20 @@ local pack_use = function()
 
     use({ "blueyed/vim-diminactive" })
 
-    -- use {
-    --     "rcarriga/nvim-dap-ui",
-    --     requires = { "mfussenegger/nvim-dap" },
-    -- }
-    -- use {
-    --     "Pocco81/DAPInstall.nvim",
-    --     requires = { "mfussenegger/nvim-dap" },
-    -- }
-    -- use({
-    --     "theHamsta/nvim-dap-virtual-text",
-    --     requires = { "mfussenegger/nvim-dap" },
-    -- })
+    use({ "nvim-neotest/nvim-nio" })
+
+    use({
+        "rcarriga/nvim-dap-ui",
+        requires = { "mfussenegger/nvim-dap" },
+    })
+    use({
+        "Pocco81/DAPInstall.nvim",
+        requires = { "mfussenegger/nvim-dap" },
+    })
+    use({
+        "theHamsta/nvim-dap-virtual-text",
+        requires = { "mfussenegger/nvim-dap" },
+    })
 
     ----------------------------------------------------------------------------------------------------------------
     -- DB
