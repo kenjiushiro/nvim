@@ -347,6 +347,8 @@ local pack_use = function()
 
     use({ "blueyed/vim-diminactive" })
 
+    use({ "nvim-neotest/nvim-nio" })
+
     use({
         "rcarriga/nvim-dap-ui",
         requires = { "mfussenegger/nvim-dap" },

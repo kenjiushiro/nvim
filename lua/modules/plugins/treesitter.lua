@@ -40,6 +40,7 @@ M.config = function()
                 "typescript",
                 "vim",
                 "vue",
+                "svelte",
             },
             ignore_install = vim.g.code_treesitter_parsers_ignore or {},
             highlight = {
