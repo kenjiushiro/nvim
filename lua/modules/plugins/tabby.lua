@@ -34,7 +34,7 @@ require("tabby.tabline").set(function(line)
                 line.sep("", theme.win, theme.fill),
                 win.is_current() and "" or "",
                 win.file_icon(),
-                win.buf_name(),
+                string.sub(win.buf_name(), 1, 1),
                 line.sep("", theme.fill, theme.win),
                 hl = theme.win,
                 margin = " ",

@@ -91,6 +91,15 @@ as.map("n", "<leader>bf", [[:e <C-R>=expand("%:p:h") . "/" <CR>]], { silent = fa
 as.map("n", "<leader>bv", [[:vsp <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new split
 as.map("n", "<leader>s", ":HopChar2<CR>")
 as.map("n", "<leader>S", ":HopChar1<CR>")
+as.map("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+as.map("n", "<leader>hh", ":lua require('harpoon.mark').add_file()<CR>")
+as.map("n", "gh", ":lua require('harpoon.ui').nav_file(1)<CR>")
+as.map("n", "gj", ":lua require('harpoon.ui').nav_file(2)<CR>")
+as.map("n", "gk", ":lua require('harpoon.ui').nav_file(3)<CR>")
+as.map("n", "gl", ":lua require('harpoon.ui').nav_file(4)<CR>")
+as.map("n", "g;", ":lua require('harpoon.ui').nav_file(5)<CR>")
+as.map("n", "gp", ":lua require('harpoon.ui').nav_prev()<CR>")
+as.map("n", "gn", ":lua require('harpoon.ui').nav_next()<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
@@ -115,8 +124,6 @@ as.map("n", "<S-Up>", ":lua require'core.util'.resize(false, -2)<CR>")
 as.map("n", "<S-Down>", ":lua require'core.util'.resize(false, 2)<CR>")
 as.map("n", "<S-Left>", ":lua require'core.util'.resize(true, -2)<CR>")
 as.map("n", "<S-Right>", ":lua require'core.util'.resize(true, 2)<CR>")
-as.map("n", "gh", "gT")
-as.map("n", "gl", "gt")
 as.map("n", "<leader>ww", "<C-w>q") -- cycle through window
 as.map("n", "<leader>wq", "<C-w>q") -- quit window
 as.map("n", "<leader>ws", "<C-w>s") -- split window
