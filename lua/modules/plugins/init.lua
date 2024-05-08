@@ -82,6 +82,7 @@ local pack_use = function()
             require("modules.plugins.filetree").config()
         end,
     })
+    use({ "ThePrimeagen/harpoon" })
 
     ----------------------------------------------------------------------------------------------------------------
     -- Editing
