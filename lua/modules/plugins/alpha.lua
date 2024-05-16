@@ -14,7 +14,6 @@ M.config = function()
         dashboard.button("n", "> 📝 Nvim Config", ":Telescope fd cwd=$HOME/.config/nvim/<CR>"),
         dashboard.button("a", "> 💻 Alacritty config", ":tabe $HOME/.config/alacritty/alacritty.yml<CR>"),
         dashboard.button("s", "> 🔌 Sync plugins", ":PackerSync<CR>"),
-        dashboard.button("g", "> 🌿 Git", ":Neogit<CR>"),
         dashboard.button("q", "> 👋 Quit", ":qa!<CR>"),
     }
     alpha.setup(require("alpha.themes.startify").opts)
