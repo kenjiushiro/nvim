@@ -11,7 +11,6 @@ M.config = function()
       dashboard.button("p", "> 💼 Select project", ":Telescope projects<CR>"),
       dashboard.button("n", "> 📝 Nvim Config", ":lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>"),
       dashboard.button("s", "> 🔌 Sync plugins", ":PackerSync<CR>"),
-      dashboard.button("g", "> 🌿 Git", ":Git<CR>"),
       dashboard.button("q", "> 👋 Quit", ":qa!<CR>"),
 
     }
