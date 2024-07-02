@@ -100,15 +100,6 @@ local pack_use = function()
     use({ "machakann/vim-sandwich", event = "BufRead" })
     use({ "tpope/vim-speeddating" })
     use({ "Konfekt/vim-CtrlXA" })
-    use({
-        "numToStr/Comment.nvim",
-        keys = { "gcc", "gc" },
-        config = function()
-            require("Comment").setup({
-                ignore = "^$",
-            })
-        end,
-    })
     use({ "wellle/targets.vim", event = { "BufEnter" } })
     use({ "tommcdo/vim-exchange", keys = { { "n", "cx" }, { "v", "X" } } })
     use({
