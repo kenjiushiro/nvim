@@ -101,6 +101,8 @@ as.map("n", "gm", ":lua require('harpoon.ui').nav_file(3)<CR>")
 as.map("n", "g,", ":lua require('harpoon.ui').nav_file(4)<CR>")
 as.map("n", "gp", ":lua require('harpoon.ui').nav_prev()<CR>")
 as.map("n", "gn", ":lua require('harpoon.ui').nav_next()<CR>")
+as.map("n", "g;", ":lua require('harpoon.term').gotoTerminal(1)<CR>")
+as.map("n", "g/", ":lua require('harpoon.term').gotoTerminal(2)<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
