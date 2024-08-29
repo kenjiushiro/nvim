@@ -130,13 +130,13 @@ local pack_use = function()
                     checkboxes = {
                         -- NOTE: the 'char' value has to be a single character, and the highlight groups are defined below.
                         -- [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-                        -- ["x"] = { char = "", hl_group = "ObsidianDone" },
+                        ["x"] = { char = "", hl_group = "ObsidianDone" },
                         [">"] = { char = "", hl_group = "ObsidianRightArrow" },
                         ["~"] = { char = "󰰱", hl_group = "ObsidianTilde" },
+                        ["?"] = { char = "", hl_group = "ObsidianBullet" },
                         ["!"] = { char = "", hl_group = "ObsidianImportant" },
                         -- Replace the above with this if you don't have a patched font:
-                        [" "] = { char = "☐", hl_group = "ObsidianTodo" },
-                        ["x"] = { char = "✔", hl_group = "ObsidianDone" },
+                        [" "] = { char = "", hl_group = "White" },
 
                         -- You can also add more custom ones...
                     },
@@ -154,7 +154,7 @@ local pack_use = function()
                         ObsidianTodo = { bold = true, fg = "#f78c6c" },
                         ObsidianDone = { bold = true, fg = "#89ddff" },
                         ObsidianRightArrow = { bold = true, fg = "#f78c6c" },
-                        ObsidianTilde = { bold = true, fg = "#ff5370" },
+                        ObsidianTilde = { bold = true, fg = "#ff5370" }, -- red
                         ObsidianImportant = { bold = true, fg = "#d73128" },
                         ObsidianBullet = { bold = true, fg = "#89ddff" },
                         ObsidianRefText = { underline = true, fg = "#c792ea" },
@@ -162,6 +162,7 @@ local pack_use = function()
                         ObsidianTag = { italic = true, fg = "#89ddff" },
                         ObsidianBlockID = { italic = true, fg = "#89ddff" },
                         ObsidianHighlightText = { bg = "#75662e" },
+                        White = { bg = "#000000" },
                     },
                 },
             })
