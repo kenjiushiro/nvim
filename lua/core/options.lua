@@ -49,7 +49,6 @@ end
 vim.opt.colorcolumn = { as._default_num(vim.g.code_colorcolumn, 0) }
 vim.opt.cmdheight = as._default_num(vim.g.code_cmdheight, 2)
 vim.opt.scrolloff = as._default_num(vim.g.code_scrolloff, 10)
-vim.opt.conceallevel = 0
 vim.opt.signcolumn = "yes:1"
 vim.opt.showbreak = [[↪ ]] -- Options include -> '…', '↳ ', '→','↪ '
 vim.opt.showtabline = 2
