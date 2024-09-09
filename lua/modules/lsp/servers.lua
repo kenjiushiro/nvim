@@ -39,48 +39,6 @@ local function common_on_attach(client, bufnr)
     as.map("n", "<leader>l,s", [[:LspStop <C-R>=<CR>]], { silent = false })
 
     as.nvim_set_au("InsertLeave,BufWrite,BufEnter", "<buffer>", "lua vim.diagnostic.setloclist({open = false})")
-
-    local mappings = {
-        ["<leader>"] = {
-            l = {
-                name = "LSP",
-                [","] = { "LSP stop" },
-                [",a"] = { "<cmd>LspStop<cr>", "stop all" },
-                [",s"] = { "select" },
-                A = "code actions (range)",
-                D = "diagnostics (project)",
-                S = "symbols (project)",
-                a = "code actions (cursor)",
-                c = "clear diagnostics",
-                d = "diagnostics (buffer)",
-                f = "format",
-                g = { name = "go to" },
-                gD = "declaration",
-                gd = "definition",
-                gi = "implementation",
-                gr = "references",
-                gy = "type definition",
-                h = "hover",
-                i = "LSP info",
-                k = "signature help",
-                l = "line diagnostics",
-                p = "peek definition",
-                r = "rename",
-                s = "symbols (buffer)",
-            },
-        },
-        ["g"] = {
-            ["D"] = "LSP declaration",
-            ["d"] = "LSP definition",
-            ["h"] = "LSP documentation",
-            ["i"] = "LSP implementation",
-            ["r"] = "LSP references",
-            ["y"] = "LSP type definition",
-        },
-    }
-
-    local wk = require("which-key")
-    wk.register(mappings)
 end
 
 local lspconfig = require("lspconfig")

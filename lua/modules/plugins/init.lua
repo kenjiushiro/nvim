@@ -52,7 +52,7 @@ local pack_use = function()
     -- Navigation
     ----------------------------------------------------------------------------------------------------------------
     use({ "christoomey/vim-tmux-navigator" })
-    -- use({ "psliwka/vim-smoothie" })
+    use({ "psliwka/vim-smoothie" })
     use({
         "phaazon/hop.nvim",
         cmd = { "HopChar2" },

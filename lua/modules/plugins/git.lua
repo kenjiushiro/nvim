@@ -3,11 +3,11 @@ local M = {}
 M.gitsigns = function()
     require("gitsigns").setup({
         signs = {
-            add = { hl = "GitSignsAdd", text = "┃" },
-            change = { hl = "GitSignsChange", text = "┃" },
-            delete = { hl = "GitSignsDelete", text = "契" },
-            topdelete = { hl = "GitSignsDelete", text = "契" },
-            changedelete = { hl = "GitSignsChange", text = "~" },
+            add = { text = "┃" },
+            change = { text = "┃" },
+            delete = { text = "契" },
+            topdelete = { text = "契" },
+            changedelete = { text = "~" },
         },
         current_line_blame = true,
         -- keymaps = { noremap = true, buffer = true },
