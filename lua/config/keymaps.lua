@@ -43,11 +43,11 @@ vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 -- Search and replace
 vim.keymap.set("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
-vim.keymap.set("v", "@", ":norm!@")
+vim.keymap.set("v", "@", "<cmd>norm!@")
 -----------------------------------------------------------------------------//
 -- File manager {{{1
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<C-b>", ":Neotree toggle<CR>")
+vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<CR>")
 -- change directory to current file
 vim.keymap.set(
   "n",
@@ -58,18 +58,18 @@ vim.keymap.set(
 -----------------------------------------------------------------------------//
 -- help {{{1
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<leader>hh", ":Telescope help_tags<CR>")
-vim.keymap.set("n", "<leader>hm", ":Telescope man_pages<CR>")
-vim.keymap.set("n", "<leader>ht", ":Telescope colorscheme<CR>")
-vim.keymap.set("n", "<leader>ho", ":Telescope vim_options<CR>")
+vim.keymap.set("n", "<leader>hh", "<cmd>Telescope help_tags<CR>")
+vim.keymap.set("n", "<leader>hm", "<cmd>Telescope man_pages<CR>")
+vim.keymap.set("n", "<leader>ht", "<cmd>Telescope colorscheme<CR>")
+vim.keymap.set("n", "<leader>ho", "<cmd>Telescope vim_options<CR>")
 -----------------------------------------------------------------------------//
 -- buffers {{{1
 -----------------------------------------------------------------------------//
 vim.keymap.set("n", "<leader>b<C-t>", ":lua require'core.util'.buf_to_tab()<CR>") -- focus in new tab
-vim.keymap.set("n", "<leader>bb", ":Telescope buffers<CR>") -- all buffers
+vim.keymap.set("n", "<leader>bb", "<cmd>Telescope buffers<CR>") -- all buffers
 vim.keymap.set("n", "<leader>cp", ':let @+ = expand("%")<CR>') -- copy filepath to clipboard
-vim.keymap.set("n", "<leader>w", ":update<CR>") -- save buffer
-vim.keymap.set("n", "<leader>q", ":q<CR>") -- save buffer
+vim.keymap.set("n", "<leader>w", "<cmd>update<CR>") -- save buffer
+vim.keymap.set("n", "<leader>q", "<cmd>q<CR>") -- save buffer
 vim.keymap.set("v", "<leader>w", "<ESC>:update<CR>") -- save buffer
 vim.keymap.set("n", "<leader>bS", ":silent! wa<CR>") -- save all buffers
 vim.keymap.set("n", "<leader>bq", ":lua require'core.util'.delete_buffer()<CR>") -- quit buffer
@@ -88,7 +88,7 @@ vim.keymap.set("v", "<leader>on", ":ObsidianLinkNew<CR>")
 vim.keymap.set("v", "<leader>ol", ":ObsidianLink<CR>")
 vim.keymap.set("v", "<leader>oe", ":ObsidianExtractNote<CR>")
 vim.keymap.set("n", "<leader>ob", ":ObsidianBacklinks<CR>")
-vim.keymap.set("n", "<leader>fo", ":ObsidianSearch<CR>")
+vim.keymap.set("n", "<leader>fo", "<cmd>ObsidianSearch<CR>")
 vim.keymap.set("n", "<leader>ot", ":ObsidianTags<CR>")
 vim.keymap.set("n", "<leader>oc", ":ObsidianToggleCheckbox<CR>")
 vim.keymap.set("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
@@ -151,14 +151,14 @@ vim.keymap.set("n", "]L", ":llast<CR>")
 -----------------------------------------------------------------------------//
 -- Git {{{1
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<leader>gg", ":Neogit<CR>") -- Git
-vim.keymap.set("n", "<leader>lg", ":LazyGit<CR>") -- Git
+vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>") -- Git
+vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>") -- Git
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>") -- show diff
 vim.keymap.set("n", "<leader>gL", ":Neogit log<CR>") -- log
-vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>") -- git branches
-vim.keymap.set("n", "<leader>gf", ":Telescope git_files<CR>") -- git files
-vim.keymap.set("n", "<leader>gm", ":Telescope git_status<CR>") -- git modified files
-vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>") -- git commits
+vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>") -- git branches
+vim.keymap.set("n", "<leader>gf", "<cmd>Telescope git_files<CR>") -- git files
+vim.keymap.set("n", "<leader>gm", "<cmd>Telescope git_status<CR>") -- git modified files
+vim.keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<CR>") -- git commits
 vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>") -- preview hunk
 vim.keymap.set("n", "<leader>gl", ":Gitsigns toggle_current_line_blame<CR>") -- toggle line blame
 vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>") -- reset hunk
@@ -179,17 +179,17 @@ vim.keymap.set("n", "<leader>gl", ":Gitsigns blame_line<CR>")
 -----------------------------------------------------------------------------//
 -- Telescope {{{1
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<leader>fR", ":Telescope registers<CR>")
-vim.keymap.set("n", "<leader>fr", ":Telescope fd cwd=$HOME/requests/<CR>")
-vim.keymap.set("n", "<leader>fg", ":Telescope live_grep<CR>")
-vim.keymap.set("n", "<leader>ff", ":Telescope fd<CR>")
-vim.keymap.set("n", "<leader>fb", ":Telescope current_buffer_fuzzy_find<CR>")
-vim.keymap.set("n", "<leader>fC", ":Telescope command_history<CR>")
-vim.keymap.set("n", "<leader>fc", ":Telescope commands<CR>")
-vim.keymap.set("n", "<leader>fs", ":Telescope search_history<CR>")
-vim.keymap.set("n", "<leader>fq", ":Telescope quickfix<CR>")
-vim.keymap.set("n", "<leader>fl", ":Telescope loclist<CR>")
-vim.keymap.set("n", "<leader>fq", ":Telescope quickfix<CR>")
+vim.keymap.set("n", "<leader>fR", "<cmd>Telescope registers<CR>")
+vim.keymap.set("n", "<leader>fr", "<cmd>Telescope fd cwd=$HOME/requests/<CR>")
+vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<CR>")
+vim.keymap.set("n", "<leader>ff", "<cmd>Telescope fd<CR>")
+vim.keymap.set("n", "<leader>fb", "<cmd>Telescope current_buffer_fuzzy_find<CR>")
+vim.keymap.set("n", "<leader>fC", "<cmd>Telescope command_history<CR>")
+vim.keymap.set("n", "<leader>fc", "<cmd>Telescope commands<CR>")
+vim.keymap.set("n", "<leader>fs", "<cmd>Telescope search_history<CR>")
+vim.keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<CR>")
+vim.keymap.set("n", "<leader>fl", "<cmd>Telescope loclist<CR>")
+vim.keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<CR>")
 vim.keymap.set(
   "n",
   "<leader>fn",
@@ -201,7 +201,7 @@ vim.keymap.set("n", "<leader>fm", ":Telescope marks<CR>")
 -----------------------------------------------------------------------------//
 -- DAP
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>")
+vim.keymap.set("n", "<leader>db", "<cmd>DapToggleBreakpoint<CR>")
 vim.keymap.set("n", "<leader>dc", ":lua require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>")
 vim.keymap.set("n", "<leader>dl", ":lua require'dap'.set_breakpoint(nil, nil, vim.fn.input('Log point message: '))<CR>")
 vim.keymap.set("n", "<leader>dr", ":DapToggleRepl<CR>")
@@ -210,10 +210,10 @@ vim.keymap.set("n", "<leader>dt", ":lua require'modules.plugins.dap'.debugJest()
 vim.keymap.set("n", "<leader>dui", ":lua require'dapui'.toggle()<CR>")
 vim.keymap.set("n", "<leader>de", ":lua require'dapui'.eval()<CR>")
 
-vim.keymap.set("n", "<F5>", ":DapContinue<CR>")
-vim.keymap.set("n", "<F6>", ":DapStepOver<CR>")
-vim.keymap.set("n", "<F9>", ":DapStepInto<CR>")
-vim.keymap.set("n", "<F10>", ":DapStepOut<CR>")
+vim.keymap.set("n", "<F5>", "<cmd>DapContinue<CR>")
+vim.keymap.set("n", "<F6>", "<cmd>DapStepOver<CR>")
+vim.keymap.set("n", "<F9>", "<cmd>DapStepInto<CR>")
+vim.keymap.set("n", "<F10>", "<cmd>DapStepOut<CR>")
 -----------------------------------------------------------------------------//
 -- Zen Mode {{{1
 -----------------------------------------------------------------------------//

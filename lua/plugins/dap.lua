@@ -21,3 +21,17 @@
 --         require'modules.plugins.dap.bash'.setup(bin_path)
 --     end
 -- }
+return {
+  {
+    "rcarriga/nvim-dap-ui",
+    requires = { "mfussenegger/nvim-dap" },
+  },
+  {
+    "Pocco81/DAPInstall.nvim",
+    requires = { "mfussenegger/nvim-dap" },
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    requires = { "mfussenegger/nvim-dap" },
+  },
+}
