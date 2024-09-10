@@ -1,6 +1,32 @@
 return {
   {
     "nvim-telescope/telescope.nvim",
+    config = function()
+      local actions = require("telescope.actions")
+      require("telescope").setup({
+        defaults = {
+          mappings = {
+            n = {
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-j>"] = actions.move_selection_next,
+            },
+            i = {
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-j>"] = actions.move_selection_next,
+            },
+          },
+        },
+        pickers = {
+          buffers = {
+            mappings = {
+              i = {
+                ["<c-d>"] = actions.delete_buffer,
+              },
+            },
+          },
+        },
+      })
+    end,
     keys = {
       -- add a keymap to browse plugin files
       -- stylua: ignore
