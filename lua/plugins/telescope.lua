@@ -18,6 +18,7 @@ return {
         },
         pickers = {
           buffers = {
+            theme = "dropdown",
             mappings = {
               i = {
                 ["<c-d>"] = actions.delete_buffer,
