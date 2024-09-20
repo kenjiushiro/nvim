@@ -46,7 +46,7 @@ vim.keymap.set("n", "c.", [[:%s/\<<C-r><C-w>\>//g<Left><Left>]])
 vim.keymap.set("v", "@", "<cmd>norm!@")
 -----------------------------------------------------------------------------//
 -- File manager {{{1
------------------------------------------------------------------------------//
+----------------------------------------------------------------------------//
 vim.keymap.set("n", "<C-b>", "<cmd>Neotree toggle<CR>")
 -- change directory to current file
 vim.keymap.set(
@@ -58,7 +58,6 @@ vim.keymap.set(
 -----------------------------------------------------------------------------//
 -- help {{{1
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<leader>hh", "<cmd>Telescope help_tags<CR>")
 vim.keymap.set("n", "<leader>hm", "<cmd>Telescope man_pages<CR>")
 vim.keymap.set("n", "<leader>ht", "<cmd>Telescope colorscheme<CR>")
 vim.keymap.set("n", "<leader>ho", "<cmd>Telescope vim_options<CR>")
@@ -74,35 +73,29 @@ vim.keymap.set("v", "<leader>w", "<ESC>:update<CR>") -- save buffer
 vim.keymap.set("n", "<leader>bS", ":silent! wa<CR>") -- save all buffers
 vim.keymap.set("n", "<leader>bq", ":lua require'core.util'.delete_buffer()<CR>") -- quit buffer
 vim.keymap.set("n", "<leader>bQ", [[<cmd>w <bar> %bd <bar> e#<CR>]]) -- quit all buffers but current
-vim.keymap.set("n", "<leader>b%", ":luafile %<CR>", { silent = false }) -- source buffer
 vim.keymap.set("n", "<leader>bh", ":noh<CR>") -- No highlight
-vim.keymap.set("n", "<leader>b]", ":bn<CR>") -- buffer next
-vim.keymap.set("n", "<leader>b[", ":bp<CR>") -- buffer previous
 vim.keymap.set("n", "<leader>bn", [[:enew<CR>]], { silent = false }) -- new buffer
 vim.keymap.set("n", "<leader>bf", [[:e <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new file
 vim.keymap.set("n", "<leader>bv", [[:vsp <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new split
-vim.keymap.set("n", "<leader>s", ":HopChar2<CR>")
-vim.keymap.set("n", "<leader>S", ":HopChar1<CR>")
-vim.keymap.set("n", "<leader>o", ":Other<CR>")
-vim.keymap.set("v", "<leader>on", ":ObsidianLinkNew<CR>")
-vim.keymap.set("v", "<leader>ol", ":ObsidianLink<CR>")
-vim.keymap.set("v", "<leader>oe", ":ObsidianExtractNote<CR>")
-vim.keymap.set("n", "<leader>ob", ":ObsidianBacklinks<CR>")
+vim.keymap.set("v", "<leader>on", "<cmd>ObsidianLinkNew<CR>")
+vim.keymap.set("v", "<leader>ol", "<cmd>ObsidianLink<CR>")
+vim.keymap.set("v", "<leader>oe", "<cmd>ObsidianExtractNote<CR>")
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>")
 vim.keymap.set("n", "<leader>fo", "<cmd>ObsidianSearch<CR>")
-vim.keymap.set("n", "<leader>ot", ":ObsidianTags<CR>")
-vim.keymap.set("n", "<leader>oc", ":ObsidianToggleCheckbox<CR>")
-vim.keymap.set("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.mark').add_file()<CR>")
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>")
+vim.keymap.set("n", "<leader>oc", "<cmd>ObsidianToggleCheckbox<CR>")
+vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
+vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.mark').add_file()<CR>")
 vim.keymap.set("n", "gh", "gT")
 vim.keymap.set("n", "gl", "gt")
-vim.keymap.set("n", "gj", ":lua require('harpoon.ui').nav_file(1)<CR>")
-vim.keymap.set("n", "gk", ":lua require('harpoon.ui').nav_file(2)<CR>")
-vim.keymap.set("n", "gm", ":lua require('harpoon.ui').nav_file(3)<CR>")
-vim.keymap.set("n", "g,", ":lua require('harpoon.ui').nav_file(4)<CR>")
-vim.keymap.set("n", "g;", ":lua require('harpoon.ui').nav_file(5)<CR>")
-vim.keymap.set("n", "g/", ":lua require('harpoon.ui').nav_file(6)<CR>")
-vim.keymap.set("n", "gJ", ":lua require('harpoon.ui').nav_file(7)<CR>")
-vim.keymap.set("n", "gK", ":lua require('harpoon.ui').nav_file(8)<CR>")
+vim.keymap.set("n", "gj", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")
+vim.keymap.set("n", "gk", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")
+vim.keymap.set("n", "gm", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
+vim.keymap.set("n", "g,", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")
+vim.keymap.set("n", "g;", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
+vim.keymap.set("n", "gJ", "<cmd>lua require('harpoon.ui').nav_file(6)<CR>")
+vim.keymap.set("n", "gK", "<cmd>lua require('harpoon.ui').nav_file(7)<CR>")
+vim.keymap.set("n", "g/", "<cmd>lua require('harpoon.term').gotoTerminal(1)<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
@@ -123,10 +116,10 @@ vim.keymap.set("n", "<leader>tn", [[:tabnew<CR>]], { silent = false }) -- new ta
 -----------------------------------------------------------------------------//
 -- windows {{{1
 -----------------------------------------------------------------------------//
-vim.keymap.set("n", "<S-Up>", ":lua require'core.util'.resize(false, -2)<CR>")
-vim.keymap.set("n", "<S-Down>", ":lua require'core.util'.resize(false, 2)<CR>")
-vim.keymap.set("n", "<S-Left>", ":lua require'core.util'.resize(true, -2)<CR>")
-vim.keymap.set("n", "<S-Right>", ":lua require'core.util'.resize(true, 2)<CR>")
+vim.keymap.set("n", "<S-Up>", "<cmd>lua require'core.util'.resize(false, -2)<CR>")
+vim.keymap.set("n", "<S-Down>", "<cmd>lua require'core.util'.resize(false, 2)<CR>")
+vim.keymap.set("n", "<S-Left>", "<cmd>lua require'core.util'.resize(true, -2)<CR>")
+vim.keymap.set("n", "<S-Right>", "<cmd>lua require'core.util'.resize(true, 2)<CR>")
 vim.keymap.set("n", "<leader>ww", "<C-w>q") -- cycle through window
 vim.keymap.set("n", "<leader>wq", "<C-w>q") -- quit window
 vim.keymap.set("n", "<leader>ws", "<C-w>s") -- split window
@@ -166,8 +159,8 @@ vim.keymap.set("n", "<leader>gR", ":Gitsigns reset_buffer<CR>") -- reset buffer
 vim.keymap.set("n", "<leader>gu", ":Gitsigns undo_stage_hunk<CR>") -- undo last stage hunk
 vim.keymap.set("n", "<leader>gs", ":Gitsigns stage_hunk<CR>") -- git stage hunk
 vim.keymap.set("n", "<leader>gS", ":Gitsigns stage_buffer<CR>") -- git stage buffer
-vim.keymap.set("n", "<leader>g[", ":Gitsigns prev_hunk<CR>") -- previous hunk
-vim.keymap.set("n", "<leader>g]", ":Gitsigns next_hunk<CR>") -- next hunk
+vim.keymap.set("n", "<leader>g[", "<cmd>Gitsigns prev_hunk<CR>") -- previous hunk
+vim.keymap.set("n", "<leader>g]", "<cmd>Gitsigns next_hunk<CR>") -- next hunk
 vim.keymap.set("n", "<leader>gq", ":GitConflictListQf<CR>")
 vim.keymap.set("n", "<leader>gt", ":GitConflictChooseTheirs<CR>")
 vim.keymap.set("n", "<leader>go", ":GitConflictChooseOurs<CR>")
@@ -225,33 +218,14 @@ vim.keymap.set("n", "<leader>zq", ":close<CR>")
 -----------------------------------------------------------------------------//
 -- Quit/Session {{{1
 -----------------------------------------------------------------------------//
--- vim.keymap.set("n", "<leader>qs", ":SSave<CR>")
--- vim.keymap.set("n", "<leader>qq", ":SClose<CR>")
-vim.keymap.set("n", "<leader>Q", ":quitall<CR>")
--- vim.keymap.set("n", "<leader>qd", ":SDelete<CR>")
--- vim.keymap.set("n", "<leader>ql", ":SLoad<CR>")
+vim.keymap.set("n", "<leader>Q", "<cmd>quitall<CR>")
 -----------------------------------------------------------------------------//
 -- Open/Run {{{1
 -----------------------------------------------------------------------------//
 vim.keymap.set("n", "<leader>r|", [[:execute "set colorcolumn=" . (&colorcolumn == "0" ? "81" : "")<CR>]])
 vim.keymap.set("n", "<leader>rr", "@:<CR>")
-vim.keymap.set("n", "<leader>r'", ":Startify<CR>")
-vim.keymap.set("n", "<leader>ri", ":IndentBlanklineToggle<CR>")
-vim.keymap.set("n", "<leader>rt", ":ToggleTerm<CR>")
-vim.keymap.set("n", "<leader>rb", ":Telescope file_browser<CR>")
-vim.keymap.set("n", "<leader>r.", ":NvimTreeFindFile<CR>")
-vim.keymap.set("n", "<leader>rf", ":Format<CR>")
-vim.keymap.set("v", "<leader>f", ":Format<CR>")
-vim.keymap.set("n", "<leader>rn", ":vsp ~/.config/nvim/lua/config.lua<CR>")
-vim.keymap.set("n", "<leader>rca", ":ColorizerAttachToBuffer<CR>")
-vim.keymap.set("n", "<leader>rct", ":ColorizerToggle<CR>")
-vim.keymap.set("n", "<leader>rg", ":Gitsigns refresh<CR>")
-vim.keymap.set("n", "<leader>rq", ":cwindow<CR>")
-vim.keymap.set("n", "<leader>rl", ":lwindow<CR>")
-vim.keymap.set("n", "<leader>rJ", [[:<C-u>call append(line("."), repeat([""], v:count1))<CR>]]) -- append line down without insert mode
-vim.keymap.set("n", "<leader>rK", [[:<C-u>call append(line(".")-1, repeat([""], v:count1))<CR>]]) -- append line up without insert mode
 
-vim.keymap.set("n", "<leader>sql", ":tabnew<CR>:DBUI<CR>")
+vim.keymap.set("n", "<leader>sql", "<cmd>tabnew<CR><cmd>DBUI<CR>")
 vim.keymap.set("n", "<leader>re", ":HTTPClientDoRequest<CR>")
 vim.keymap.set("n", "<leader>tt", ":Lspsaga term_toggle<CR>")
 
@@ -260,21 +234,18 @@ vim.keymap.set("n", "gD", ":lua vim.lsp.buf.declaration()<CR>")
 vim.keymap.set("n", "gy", ":lua vim.lsp.buf.type_definition()<CR>")
 vim.keymap.set("n", "gr", ":Lspsaga finder<CR>")
 vim.keymap.set("n", "gi", ":lua vim.lsp.buf.implementation()<CR>")
-vim.keymap.set("n", "<leader>lh", ":lua vim.lsp.buf.signature_help()<CR>")
+vim.keymap.set("n", "<leader>lh", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 vim.keymap.set("n", "<leader>lk", ":lua vim.lsp.buf.signature_help()<CR>")
 vim.keymap.set("n", "<leader>la", ":Lspsaga code_action<CR>")
 vim.keymap.set("n", "<leader>lc", ":lua vim.diagnostic.hide()<CR>")
 vim.keymap.set("n", "<leader>lA", ":Telescope lsp_range_code_actions<CR>")
 vim.keymap.set("n", "<leader>ld", ":Telescope diagnostics bufnr=0<CR>")
 vim.keymap.set("n", "<leader>lD", ":Telescope diagnostics<CR>")
-vim.keymap.set("n", "<leader>lr", ":Lspsaga rename<CR>")
-vim.keymap.set("n", "<leader>lo", ":Lspsaga outline<CR>")
-vim.keymap.set("n", "<leader>ls", ":Telescope lsp_document_symbols<CR>")
-vim.keymap.set("n", "<leader>lS", ":Telescope lsp_workspace_symbols<CR>")
-vim.keymap.set("n", "<leader>lf", ":lua vim.lsp.buf.formatting()<CR>")
-vim.keymap.set("n", "<leader>lp", ":Lspsaga preview_definition<CR>")
+vim.keymap.set("n", "<leader>lr", "<cmd>Lspsaga rename<CR>")
+vim.keymap.set("n", "<leader>lo", "<cmd>Lspsaga outline<CR>")
+vim.keymap.set("n", "<leader>ls", "<cmd>Telescope lsp_document_symbols<CR>")
+vim.keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_workspace_symbols<CR>")
 vim.keymap.set("n", "<leader>ll", ":Lspsaga show_line_diagnostics<CR>")
-vim.keymap.set("n", "<c-p>", ":Lspsaga diagnostic_jump_prev<CR>")
-vim.keymap.set("n", "<c-n>", ":Lspsaga diagnostic_jump_next<CR>")
-vim.keymap.set("n", "<leader>l,s", [[:LspStop <C-R>=<CR>]], { silent = false })
+vim.keymap.set("n", "<c-p>", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
+vim.keymap.set("n", "<c-n>", "<cmd>:Lspsaga diagnostic_jump_next<CR>")
 -- }}}
