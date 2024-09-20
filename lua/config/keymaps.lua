@@ -81,28 +81,25 @@ vim.keymap.set("n", "<leader>b[", ":bp<CR>") -- buffer previous
 vim.keymap.set("n", "<leader>bn", [[:enew<CR>]], { silent = false }) -- new buffer
 vim.keymap.set("n", "<leader>bf", [[:e <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new file
 vim.keymap.set("n", "<leader>bv", [[:vsp <C-R>=expand("%:p:h") . "/" <CR>]], { silent = false }) -- new split
-vim.keymap.set("n", "<leader>s", ":HopChar2<CR>")
-vim.keymap.set("n", "<leader>S", ":HopChar1<CR>")
-vim.keymap.set("n", "<leader>o", ":Other<CR>")
-vim.keymap.set("v", "<leader>on", ":ObsidianLinkNew<CR>")
-vim.keymap.set("v", "<leader>ol", ":ObsidianLink<CR>")
-vim.keymap.set("v", "<leader>oe", ":ObsidianExtractNote<CR>")
-vim.keymap.set("n", "<leader>ob", ":ObsidianBacklinks<CR>")
+vim.keymap.set("v", "<leader>on", "<cmd>ObsidianLinkNew<CR>")
+vim.keymap.set("v", "<leader>ol", "<cmd>ObsidianLink<CR>")
+vim.keymap.set("v", "<leader>oe", "<cmd>ObsidianExtractNote<CR>")
+vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>")
 vim.keymap.set("n", "<leader>fo", "<cmd>ObsidianSearch<CR>")
-vim.keymap.set("n", "<leader>ot", ":ObsidianTags<CR>")
-vim.keymap.set("n", "<leader>oc", ":ObsidianToggleCheckbox<CR>")
-vim.keymap.set("n", "<leader>h", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-vim.keymap.set("n", "<leader>hh", ":lua require('harpoon.mark').add_file()<CR>")
+vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTags<CR>")
+vim.keymap.set("n", "<leader>oc", "<cmd>ObsidianToggleCheckbox<CR>")
+vim.keymap.set("n", "<leader>h", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<CR>")
+vim.keymap.set("n", "<leader>hh", "<cmd>lua require('harpoon.mark').add_file()<CR>")
 vim.keymap.set("n", "gh", "gT")
 vim.keymap.set("n", "gl", "gt")
-vim.keymap.set("n", "gj", ":lua require('harpoon.ui').nav_file(1)<CR>")
-vim.keymap.set("n", "gk", ":lua require('harpoon.ui').nav_file(2)<CR>")
-vim.keymap.set("n", "gm", ":lua require('harpoon.ui').nav_file(3)<CR>")
-vim.keymap.set("n", "g,", ":lua require('harpoon.ui').nav_file(4)<CR>")
-vim.keymap.set("n", "g;", ":lua require('harpoon.ui').nav_file(5)<CR>")
-vim.keymap.set("n", "g/", ":lua require('harpoon.ui').nav_file(6)<CR>")
-vim.keymap.set("n", "gJ", ":lua require('harpoon.ui').nav_file(7)<CR>")
-vim.keymap.set("n", "gK", ":lua require('harpoon.ui').nav_file(8)<CR>")
+vim.keymap.set("n", "gj", "<cmd>lua require('harpoon.ui').nav_file(1)<CR>")
+vim.keymap.set("n", "gk", "<cmd>lua require('harpoon.ui').nav_file(2)<CR>")
+vim.keymap.set("n", "gm", "<cmd>lua require('harpoon.ui').nav_file(3)<CR>")
+vim.keymap.set("n", "g,", "<cmd>lua require('harpoon.ui').nav_file(4)<CR>")
+vim.keymap.set("n", "g;", "<cmd>lua require('harpoon.ui').nav_file(5)<CR>")
+vim.keymap.set("n", "gJ", "<cmd>lua require('harpoon.ui').nav_file(6)<CR>")
+vim.keymap.set("n", "gK", "<cmd>lua require('harpoon.ui').nav_file(7)<CR>")
+vim.keymap.set("n", "g/", "<cmd>lua require('harpoon.term').gotoTerminal(1)<CR>")
 -----------------------------------------------------------------------------//
 -- tests {{{1
 -----------------------------------------------------------------------------//
@@ -193,7 +190,7 @@ vim.keymap.set("n", "<leader>fq", "<cmd>Telescope quickfix<CR>")
 vim.keymap.set(
   "n",
   "<leader>fn",
-  ":lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>"
+  "<cmd>lua require('telescope.builtin').find_files({ cwd = vim.fn.stdpath('config') })<CR>"
 )
 vim.keymap.set("n", "<leader>fa", ":tabe $HOME/.config/alacritty/alacritty.yml<CR>")
 vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>")
