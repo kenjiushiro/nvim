@@ -16,7 +16,13 @@ return {
             path = "~/vaults/work",
           },
         },
-
+        follow_url_func = function(url)
+          -- Open the URL in the default web browser.
+          -- vim.fn.jobstart({ "open", url }) -- Mac OS
+          vim.fn.jobstart({ "xdg-open", url }) -- linux
+          -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+          -- vim.ui.open(url) -- need Neovim 0.10.0+
+        end,
         -- see below for full list of options 👇
         ui = {
           enable = true, -- set to false to disable all additional syntax features
