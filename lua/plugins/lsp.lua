@@ -25,6 +25,7 @@ return {
     ---@class PluginLspOpts
     opts = {
       ---@type lspconfig.options
+      inlay_hints = { enabled = false },
       servers = {
         -- tsserver will be automatically installed with mason and loaded with lspconfig
         tsserver = {},
