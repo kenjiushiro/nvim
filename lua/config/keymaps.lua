@@ -145,7 +145,7 @@ vim.keymap.set("n", "]L", ":llast<CR>")
 -- Git {{{1
 -----------------------------------------------------------------------------//
 vim.keymap.set("n", "<leader>gg", "<cmd>Neogit<CR>") -- Git
-vim.keymap.set("n", "<leader>lg", "<cmd>LazyGit<CR>") -- Git
+vim.keymap.set("n", "<leader>lg", "<cmd>Neogit<CR>") -- Git
 vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>") -- show diff
 vim.keymap.set("n", "<leader>gL", ":Neogit log<CR>") -- log
 vim.keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<CR>") -- git branches
