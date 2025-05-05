@@ -45,6 +45,7 @@ vim.keymap.set('n', '<leader>ws', '<C-w>s')
 vim.keymap.set('n', '<leader>wv', '<C-w>v')
 
 vim.keymap.set("n", "<leader>wT", "<C-w>T") -- break out into a new tab
+vim.keymap.set("n", "<leader>tn", ":tabnew<CR>") -- break out into a new tab
 vim.keymap.set("n", "<leader>wm", "<C-w>|") -- max out to fullscreen
 vim.keymap.set("n", "<leader>w=", "<C-w>=") -- equally high and width
 
@@ -52,7 +53,10 @@ vim.keymap.set("n", "<leader>w=", "<C-w>=") -- equally high and width
 vim.keymap.set('n', 'gl', 'gt')
 vim.keymap.set('n', 'gh', 'gT')
 
-vim.keymap.set('n', 'gh', 'gT')
+vim.keymap.set('n', '<Tab>', ':bnext<CR>')
+vim.keymap.set('n', '<S-Tab>', ':bprev<CR>')
+
+vim.keymap.set('n', '<BS>', ':b#<CR>')
 
 -- Clipboard keymaps
 vim.keymap.set('n','y','"+y')
@@ -83,7 +87,7 @@ vim.keymap.set('t', '<Esc>', '<C-\\><C-n>')
 
 vim.keymap.set("n", "<leader>ff", function()
   -- Run fd and fzf together in PowerShell
-  local cmd = 'powershell -NoProfile -Command "fd --type f --hidden --exclude .git | fzf --prompt \'Files> \'"'
+  local cmd = 'powershell -NoProfile -Command "fd --type f --hidden --exclude .git --exclude node_modules | fzf --prompt \'Files> \'"'
   local handle = io.popen(cmd)
   if not handle then return end
 

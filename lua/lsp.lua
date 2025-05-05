@@ -19,6 +19,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
     vim.keymap.set("n", "<leader>fo", function() vim.lsp.buf.format { async = true } end)
 
+
     local signs = {
       Error = "✘",       -- or "❌" or "E"
       Warn  = "▲",       -- or "⚠️"
@@ -31,6 +32,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
+    vim.keymap.set("i", "<C-Space>", function()
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-x><C-o>", true, false, true), "n", false)
+    end, { desc = "Trigger LSP completion manually" })
+
+    vim.o.completeopt = "menuone,noselect"
   end,
 })
 
