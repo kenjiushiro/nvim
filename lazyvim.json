@@ -1,9 +1,17 @@
 {
   "extras": [
-
+    "lazyvim.plugins.extras.ai.copilot",
+    "lazyvim.plugins.extras.ai.copilot-chat",
+    "lazyvim.plugins.extras.coding.mini-surround",
+    "lazyvim.plugins.extras.editor.harpoon2",
+    "lazyvim.plugins.extras.lang.angular",
+    "lazyvim.plugins.extras.lang.omnisharp",
+    "lazyvim.plugins.extras.util.mini-hipatterns",
+    "lazyvim.plugins.extras.util.octo"
   ],
+  "install_version": 8,
   "news": {
-    "NEWS.md": "6520"
+    "NEWS.md": "10960"
   },
-  "version": 6
+  "version": 8
 }
