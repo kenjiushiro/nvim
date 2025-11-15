@@ -22,7 +22,6 @@ return {
             enabled = true,
           })
           require("plugins.dap.php").setup(bin_path)
-          require("plugins.dap.typescript").setup(bin_path)
           require("plugins.dap.csharp").setup(bin_path)
           require("plugins.dap.bash").setup(bin_path)
         end,
