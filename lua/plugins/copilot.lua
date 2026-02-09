@@ -2,7 +2,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     opts = {
-      provider = "copilot",
+      model = "claude-sonnet-4.5",
     },
     keys = {
       {
