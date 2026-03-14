@@ -248,4 +248,13 @@ vim.keymap.set("n", "<leader>lS", "<cmd>Telescope lsp_workspace_symbols<CR>")
 vim.keymap.set("n", "<leader>ll", ":Lspsaga show_line_diagnostics<CR>")
 vim.keymap.set("n", "<c-p>", "<cmd>Lspsaga diagnostic_jump_prev<CR>")
 vim.keymap.set("n", "<c-n>", "<cmd>:Lspsaga diagnostic_jump_next<CR>")
+
+vim.keymap.set("n", "<F3>", "<cmd>:lua require('dapui').toggle()<CR>")
+vim.keymap.set("n", "<F6>", "<cmd>:lua require('dapui').eval()<CR>")
+
+vim.keymap.set("n", "<F5>", "<cmd>:DapContinue<CR>")
+vim.keymap.set("n", "<F9>", "<cmd>:DapToggleBreakpoint<CR>")
+vim.keymap.set("n", "<F10>", "<cmd>:DapStepOver<CR>")
+vim.keymap.set("n", "<F11>", "<cmd>:DapStepInto<CR>")
+vim.keymap.set("n", "<F12>", "<cmd>:DapStepOut<CR>")
 -- }}}

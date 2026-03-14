@@ -13,6 +13,20 @@ return {
       local bin_path = vim.fn.stdpath("data") .. "/mason/bin/"
       require("plugins.dap.csharp").setup(bin_path)
 
+      dap.adapters.python = {
+        type = "server",
+        host = "127.0.0.1",
+        port = 5678,
+      }
+
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "attach",
+          name = "Attach to debugpy on localhost:5678",
+        },
+      }
+
       return {
         setup = function()
           require("dapui").setup()
